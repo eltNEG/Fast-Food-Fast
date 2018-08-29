@@ -141,6 +141,29 @@ input::-webkit-inner-spin-button {
   width: 95%;
 }
 
+.order-table {
+  width: 100%;
+  margin-top: 10%;
+}
+
+.order-table-left-col {
+  width: 80%;
+  color: #2c3e50
+}
+
+.order-table-row {
+  height: 2.5em;
+}
+
+.order-table-right-col {
+  width: 30%;
+  color: #7d8994
+}
+
+.back-icon {
+  cursor: pointer;
+}
+
 @media screen and (min-width: 451px) {
   .container {
     margin: 0 auto;
