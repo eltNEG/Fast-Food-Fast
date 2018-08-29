@@ -57,7 +57,6 @@ input::-webkit-inner-spin-button {
 
 .container {
   margin: 10% 10% 5% 8%;
-  /*color: #7d8994;*/
   color: #2c3e50;
 }
 
@@ -111,7 +110,7 @@ input::-webkit-inner-spin-button {
 
 .select-food {
   margin-top: 6%;
-  height: 3.0em;
+  height: 3em;
   border-radius: 0.5em;
   font-size: 1.1em;
   width: 95%;
@@ -148,7 +147,7 @@ input::-webkit-inner-spin-button {
 
 .order-table-left-col {
   width: 80%;
-  color: #2c3e50
+  color: #2c3e50;
 }
 
 .order-table-row {
@@ -157,11 +156,77 @@ input::-webkit-inner-spin-button {
 
 .order-table-right-col {
   width: 30%;
-  color: #7d8994
+  color: #7d8994;
 }
 
 .back-icon {
   cursor: pointer;
+}
+
+.manage-order-page-container {
+  margin: 5% 8% 0% 8%;
+  color: #2c3e50;
+}
+
+.header-center {
+  text-align: center;
+  font-size: 1.23em;
+  font-weight: 900;
+}
+
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.manage-order-table {
+  margin-top: 2em;
+  height: 25em;
+  padding: 1%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+}
+
+@media screen and (max-width: 451px) {
+  .table-container {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  .manage-order-table {
+    margin-top: 2em;
+    height: 25em;
+    padding: 1%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  .manage-order-table tbody {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    height: 80%;
+    font-size: 0.9em;
+  }
+
+  .manage-order-table thead,
+  tr {
+    display: block;
+  }
+
+  .manage-order-table thead {
+    border-bottom: solid 1px #b0b0b0;
+    text-align: left;
+  }
+
+  .manage-order-table th,
+  .manage-order-table td {
+    padding: 5px 5px 5px 0px;
+    text-align: left;
+    width: 150%;
+  }
 }
 
 @media screen and (min-width: 451px) {
@@ -173,6 +238,10 @@ input::-webkit-inner-spin-button {
   }
 
   .header {
+    font-size: 1.55em;
+  }
+
+  .header-center {
     font-size: 1.55em;
   }
 }
