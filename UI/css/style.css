@@ -109,6 +109,38 @@ input::-webkit-inner-spin-button {
   text-decoration: none;
 }
 
+.select-food {
+  margin-top: 6%;
+  height: 3.0em;
+  border-radius: 0.5em;
+  font-size: 1.1em;
+  width: 95%;
+  color: #7d8994;
+  padding-left: 2%;
+  margin-bottom: 6%;
+}
+
+.input-address {
+  border: none transparent;
+  border-bottom: solid 1px #7d8994;
+  margin-top: 10%;
+  outline: none;
+  color: #7d8994;
+  padding-left: 2%;
+  font-size: 1.1em;
+  width: 95%;
+}
+
+.history-btn {
+  margin-top: 10%;
+  background-color: white;
+  color: #2c3e50;
+  height: 3.4em;
+  border-radius: 0.5em;
+  font-size: 1.1em;
+  width: 95%;
+}
+
 @media screen and (min-width: 451px) {
   .container {
     margin: 0 auto;
