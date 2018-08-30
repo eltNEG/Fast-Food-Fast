@@ -182,13 +182,90 @@ input::-webkit-inner-spin-button {
 
 .manage-order-table {
   margin-top: 2em;
-  height: 25em;
-  padding: 1%;
+  height: 20em;
   table-layout: fixed;
   border-collapse: collapse;
-  width: 100%;
   text-align: left;
 }
+
+.manage-order-table tbody {
+  display: block;
+  overflow-y: auto;
+  height: 95%;
+  font-size: 1em;
+}
+
+tr {
+  display: flex;
+  height: 1.7em;
+}
+
+.manage-order-table thead,
+{
+ display: block;
+}
+
+.manage-order-table thead {
+  border-bottom: solid 1px #b0b0b0;
+}
+
+.manage-order-table thead tr th:nth-child(1),
+.manage-order-table tr td:nth-child(1) {
+  width: 9em;
+}
+
+.manage-order-table thead tr th:nth-child(2),
+.manage-order-table tr td:nth-child(2) {
+  width: 8em;
+}
+
+.manage-order-table thead tr th:nth-child(3),
+.manage-order-table tr td:nth-child(3) {
+  width: 9em;
+}
+
+.manage-order-table thead tr th:nth-child(4),
+.manage-order-table tr td:nth-child(4) {
+  width: 7em;
+}
+
+.manage-order-table thead tr th:nth-child(5),
+.manage-order-table tr td:nth-child(5) {
+  width: 8em;
+  text-align: center;
+}
+
+.manage-order-table tr td a:nth-child(1) {
+  color: green;
+  margin-right: 0.2em;
+}
+
+.accepted {
+  color: lightgreen;
+}
+
+.declined {
+  color: lightcoral;
+}
+
+.manage-order-table tr td a:nth-child(2) {
+  color: red;
+  margin-left: 0.2em;
+}
+
+.manage-order-table thead tr th:nth-child(6),
+.manage-order-table tr td:nth-child(6) {
+  width: 5em;
+  text-align: center;
+}
+
+.update-table-btn {
+  height: 2em;
+  width: 50%;
+  margin-top: 5%;
+  align-self: center;
+}
+/*===========*/
 
 .food-item-table {
   width: 100%;
@@ -241,46 +318,6 @@ input::-webkit-inner-spin-button {
   margin-top: 5%;
 }
 
-@media screen and (max-width: 451px) {
-  .table-container {
-    overflow-x: auto;
-    width: 100%;
-  }
-
-  .manage-order-table {
-    margin-top: 2em;
-    height: 25em;
-    padding: 1%;
-    table-layout: fixed;
-    border-collapse: collapse;
-  }
-
-  .manage-order-table tbody {
-    display: block;
-    width: 100%;
-    overflow: auto;
-    height: 80%;
-    font-size: 0.9em;
-  }
-
-  .manage-order-table thead,
-  tr {
-    display: block;
-  }
-
-  .manage-order-table thead {
-    border-bottom: solid 1px #b0b0b0;
-    text-align: left;
-  }
-
-  .manage-order-table th,
-  .manage-order-table td {
-    padding: 5px 5px 5px 0px;
-    text-align: left;
-    width: 150%;
-  }
-}
-
 @media screen and (min-width: 451px) {
   .container {
     margin: 0 auto;
@@ -295,5 +332,11 @@ input::-webkit-inner-spin-button {
 
   .header-center {
     font-size: 1.55em;
+  }
+
+  .update-table-btn {
+    height: 2em;
+    width: 30%;
+    margin-top: 5%;
   }
 }
