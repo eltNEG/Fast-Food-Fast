@@ -65,13 +65,13 @@ input::-webkit-inner-spin-button {
   border-bottom: solid 1px #7d8994;
   margin-top: 15%;
   outline: none;
-  color: #7d8994;
+  color: #173348;
   padding-left: 2%;
   font-size: 1.2em;
 }
 
 ::placeholder {
-  color: #7d8994;
+  color: #2c3e50;
 }
 
 .form-btn {
