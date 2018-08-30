@@ -67,6 +67,7 @@ input::-webkit-inner-spin-button {
   outline: none;
   color: #7d8994;
   padding-left: 2%;
+  font-size: 1.2em;
 }
 
 ::placeholder {
@@ -228,6 +229,16 @@ input::-webkit-inner-spin-button {
 
 .item-header {
   margin-top: 10%;
+}
+
+.input-header {
+  margin-top: 12%;
+  font-weight: 550;
+  font-size: 1.1em;
+}
+
+.reduce-top-margin {
+  margin-top: 5%;
 }
 
 @media screen and (max-width: 451px) {
