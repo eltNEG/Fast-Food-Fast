@@ -1,10 +1,9 @@
-"use strict";
-import express from "express";
+import express from 'express';
 
-const pingRoute = express.Router()
+const pingRoute = express.Router();
 
-const pingController = (req, res, next) => res.send("pong")
+const pingController = (req, res) => res.send('pong');
 
-pingRoute.route("/ping").get(pingController)
+pingRoute.route('/ping').get(pingController);
 
-export default pingRoute
+export default pingRoute;
