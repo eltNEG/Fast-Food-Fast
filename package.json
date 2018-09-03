@@ -7,16 +7,19 @@
   "author": "eltNEG <yorewole@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "coveralls": "^3.0.2",
     "express": "^4.16.3"
   },
   "scripts": {
     "devstart": "nodemon --exec npm run babel-node -- ./server.js",
     "babel-node": "babel-node --presets=env",
-    "start": "npm run babel-node server.js",
-    "build": "babel ./server.js -d dist",
+    "startdev": "npm run babel-node server.js",
+    "start": "npm run build && node dist/server.js",
+    "build": "rm -rf dist && babel ./ -d dist --ignore node_modules,ui",
     "eslint": "./node_modules/.bin/eslint",
     "test-init": "node node_modules/jasmine/bin/jasmine init",
-    "test": "./node_modules/.bin/jasmine --config=./spec/support/jasmine.json"
+    "test": "./node_modules/.bin/jasmine --config=./spec/support/jasmine.json",
+    "coverage": "istanbul cover node_modules/jasmine/bin/jasmine.js --config=./spec/support/jasmine.json --captureExceptions spec/ && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -25,7 +28,9 @@
     "eslint": "^5.5.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "istanbul": "^0.4.5",
     "jasmine": "^3.2.0",
+    "jasmine-node": "^1.16.0",
     "request": "^2.88.0"
   }
 }
