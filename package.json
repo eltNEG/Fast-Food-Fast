@@ -13,11 +13,15 @@
     "devstart": "nodemon --exec npm run babel-node -- ./server.js",
     "babel-node": "babel-node --presets=env",
     "start": "npm run babel-node server.js",
-    "build": "babel ./server.js -d dist"
+    "build": "babel ./server.js -d dist",
+    "eslint": "./node_modules/.bin/eslint"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
   }
 }
