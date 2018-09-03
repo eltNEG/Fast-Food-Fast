@@ -2,6 +2,8 @@
 
 [![Challenge](https://img.shields.io/badge/Andela%20Challenge-Fast--Food--Fast-green.svg)](https://github.com/eltNEG/Fast-Food-Fast)
 
+[![Coverage Status](https://coveralls.io/repos/github/eltNEG/Fast-Food-Fast/badge.svg?branch=ci-integration)](https://coveralls.io/github/eltNEG/Fast-Food-Fast?branch=master)
+
 ## BUILD A PRODUCT: Fast-Food-Fast
 
 ### Project Overview
