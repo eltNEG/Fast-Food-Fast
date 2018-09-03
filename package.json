@@ -5,5 +5,19 @@
   "main": "server.js",
   "repository": "https://github.com/eltNEG/Fast-Food-Fast.git",
   "author": "eltNEG <yorewole@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "scripts": {
+    "devstart": "nodemon --exec npm run babel-node -- ./server.js",
+    "babel-node": "babel-node --presets=env",
+    "start": "node --exec npm run babel-node -- ./server.js",
+    "build": "babel src -d dist"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0"
+  }
 }
