@@ -1,4 +1,4 @@
-"user strict";
+"use strict";
 import express from "express";
 import routes from "./routes";
 
