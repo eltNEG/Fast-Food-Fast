@@ -12,8 +12,8 @@
   "scripts": {
     "devstart": "nodemon --exec npm run babel-node -- ./server.js",
     "babel-node": "babel-node --presets=env",
-    "start": "node --exec npm run babel-node -- ./server.js",
-    "build": "babel src -d dist"
+    "start": "npm run babel-node server.js",
+    "build": "babel ./server.js -d dist"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
