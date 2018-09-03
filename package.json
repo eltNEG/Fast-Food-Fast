@@ -1,0 +1,9 @@
+{
+  "name": "Fast-Food-Fast",
+  "version": "1.0.0",
+  "description": "Fast-Food_Fast is a food delivery service for a restaurant",
+  "main": "server.js",
+  "repository": "https://github.com/eltNEG/Fast-Food-Fast.git",
+  "author": "eltNEG <yorewole@gmail.com>",
+  "license": "MIT"
+}
