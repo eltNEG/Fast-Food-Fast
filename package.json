@@ -13,7 +13,7 @@
     "devstart": "nodemon --exec npm run babel-node -- ./server.js",
     "babel-node": "babel-node --presets=env",
     "start": "npm run babel-node server.js",
-    "build": "babel . -d dist --ignore node_modules, ui",
+    "build": "babel . -d dist --ignore node_modules,UI",
     "eslint": "./node_modules/.bin/eslint",
     "test": "mocha --require babel-polyfill --require babel-register",
     "clean": "rm -rf dist coverage",
