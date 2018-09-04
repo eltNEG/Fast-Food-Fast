@@ -13,19 +13,24 @@
     "devstart": "nodemon --exec npm run babel-node -- ./server.js",
     "babel-node": "babel-node --presets=env",
     "start": "npm run babel-node server.js",
-    "build": "babel ./server.js -d dist",
+    "build": "babel . -d dist --ignore node_modules, ui",
     "eslint": "./node_modules/.bin/eslint",
-    "test-init": "node node_modules/jasmine/bin/jasmine init",
-    "test": "./node_modules/.bin/jasmine --config=./spec/support/jasmine.json"
+    "test": "mocha --require babel-polyfill --require babel-register",
+    "clean": "rm -rf dist coverage",
+    "coverage": "npm run build && ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --  -R spec dist/test/*.js --exit && npm run clean"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
     "eslint": "^5.5.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "istanbul": "^0.4.5",
     "jasmine": "^3.2.0",
+    "mocha": "^5.2.0",
     "request": "^2.88.0"
   }
 }
