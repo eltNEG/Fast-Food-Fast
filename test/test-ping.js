@@ -2,7 +2,8 @@ import request from 'request';
 import { expect } from 'chai';
 import server from '../server';
 
-describe('Server', () => {
+describe('Ping Server', () => {
+  const baseURL = 'http://localhost:3000/api/v1';
   after(() => {
     server.close();
   });
@@ -10,7 +11,7 @@ describe('Server', () => {
     const data = {};
     before((done) => {
       request.get(
-        'http://localhost:3000/api/v1/ping',
+        `${baseURL}/ping`,
         (error, response, body) => {
           data.status = response.statusCode;
           data.body = body;
