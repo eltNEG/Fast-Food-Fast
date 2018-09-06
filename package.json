@@ -1,0 +1,46 @@
+{
+  "name": "Fast-Food-Fast",
+  "version": "1.0.0",
+  "description": "Fast-Food_Fast is a food delivery service for a restaurant",
+  "main": "server.js",
+  "repository": "https://github.com/eltNEG/Fast-Food-Fast.git",
+  "author": "eltNEG <yorewole@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  },
+  "engines": {
+    "node": "10.7.0"
+  },
+  "scripts": {
+    "prodstart": "yarn build && node dist/server.js",
+    "devstart": "nodemon --exec npm run babel-node -- ./server.js",
+    "babel-node": "babel-node --presets=env",
+    "start": "npm run babel-node server.js",
+    "build": "babel . -d dist --ignore node_modules,UI",
+    "eslint": "./node_modules/.bin/eslint",
+    "test": "mocha --require babel-polyfill --require babel-register",
+    "clean": "rm -rf dist coverage",
+    "cov": "npm run build && ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --  -R spec dist/test/*.js",
+    "coverage": "npm run build && ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --  -R spec dist/test/*.js && cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js && npm run clean || npm run clean"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "UI"
+  ],
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "istanbul": "^0.4.5",
+    "jasmine": "^3.2.0",
+    "mocha": "^5.2.0",
+    "request": "^2.88.0"
+  }
+}
