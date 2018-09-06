@@ -9,7 +9,7 @@
 ## BUILD A PRODUCT: Fast-Food-Fast
 
 ### Project Overview
-Fast-Food-Fast is a food delivery service app for a restaurant. The project is built with html and css with no external library. The ui template of the restaurant can be found [here](https://eltneg.github.io/Fast-Food-Fast/UI/index.html) and the api [here](). However, the develop is the most up-to-date with new features.
+Fast-Food-Fast is a food delivery service app for a restaurant. The project is built with html and css with no external library. The ui template of the restaurant can be found [here](https://eltneg.github.io/Fast-Food-Fast/UI/index.html) and the api [here](http://fastfoodfast-restaurant.herokuapp.com/api/v1/ping). However, the develop is the most up-to-date with new features.
 
 ### Features (UI)
 - [User can create an account](https://eltneg.github.io/Fast-Food-Fast/UI/sign-up.html)
