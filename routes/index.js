@@ -1,5 +1,5 @@
-import {pingRoute} from './pingRoute';
-import {orderRoute} from './orderRoute';
+import pingRoute from './pingRoute';
+import orderRoute from './orderRoute';
 
 const apiVersion = '/api/v1';
 
