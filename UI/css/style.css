@@ -235,7 +235,7 @@ tr {
   text-align: center;
 }
 
-.manage-order-table tr td a:nth-child(1) {
+.manage-order-table tr td select:nth-child(1) {
   color: green;
   margin-right: 0.2em;
 }
@@ -248,7 +248,7 @@ tr {
   color: lightcoral;
 }
 
-.manage-order-table tr td a:nth-child(2) {
+.manage-order-table tr td select:nth-child(2) {
   color: red;
   margin-left: 0.2em;
 }
