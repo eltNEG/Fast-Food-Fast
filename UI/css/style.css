@@ -235,8 +235,7 @@ tr {
   text-align: center;
 }
 
-.manage-order-table tr td a:nth-child(1) {
-  color: green;
+.manage-order-table tr td select:nth-child(1) {
   margin-right: 0.2em;
 }
 
@@ -248,8 +247,7 @@ tr {
   color: lightcoral;
 }
 
-.manage-order-table tr td a:nth-child(2) {
-  color: red;
+.manage-order-table tr td select:nth-child(2) {
   margin-left: 0.2em;
 }
 
@@ -338,5 +336,60 @@ tr {
     height: 2em;
     width: 30%;
     margin-top: 3%;
+  }
+}
+
+.top-bar {
+  position: fixed;
+  height: 3em;
+  top: 0;
+  width: 100%;
+  background-color: #2c3e50;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.5em 2em 0em 3em;
+  margin-left: -1em;
+  font-size: 1em
+}
+
+.tb-left-item {
+  width: 20%;
+  font-size: 1.3em
+}
+
+.tb-middle-item {
+  width: 60%;
+}
+
+.l-tb-middle-item {
+  width: 50%;
+}
+
+.tb-right-item {
+  width: 25%;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: right;
+  align-content: right;
+}
+
+.tb-menu {
+  margin-right: 2em;
+  text-align: right;
+}
+
+
+a.tb-menu {
+  text-decoration: none;
+  color: white;
+}
+
+@media screen and (max-width: 910px) {
+  .tb-middle-item {
+    width: 50%;
+  }
+  .l-tb-middle-item {
+    width: 20%;
   }
 }
