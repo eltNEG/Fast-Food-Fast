@@ -43,6 +43,7 @@ Base URL: http://fastfoodfast-restaurant.herokuapp.com
 - Run `yarn test` to test the application
 - Run `yarn devstart` to start developemnt locally
 
+
 ### Contribution
 - Clone the develop branch of this repository
 - Create a feature branch and make changes
