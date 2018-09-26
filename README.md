@@ -2,9 +2,9 @@
 
 [![Challenge](https://img.shields.io/badge/Andela%20Challenge-Fast--Food--Fast-green.svg)](https://github.com/eltNEG/Fast-Food-Fast)
 
-[![Build Status](https://travis-ci.org/eltNEG/Fast-Food-Fast.svg?branch=master)](https://travis-ci.org/eltNEG/Fast-Food-Fast)
+[![Build Status](https://travis-ci.org/eltNEG/Fast-Food-Fast.svg?branch=develop)](https://travis-ci.org/eltNEG/Fast-Food-Fast)
 
-[![Coverage Status](https://coveralls.io/repos/github/eltNEG/Fast-Food-Fast/badge.svg?branch=master)](https://coveralls.io/github/eltNEG/Fast-Food-Fast?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/eltNEG/Fast-Food-Fast/badge.svg?branch=develop)](https://coveralls.io/github/eltNEG/Fast-Food-Fast?branch=develop)
 
 ## BUILD A PRODUCT: Fast-Food-Fast
 
@@ -20,10 +20,28 @@ Fast-Food-Fast is a food delivery service app for a restaurant. The project is b
 - [Admin can manage food menu](https://eltneg.github.io/Fast-Food-Fast/UI/manage-food-items.html)
 
 ### Features (API)
+
+Base URL: http://fastfoodfast-restaurant.herokuapp.com
+
+| Endpoint | Type | Description | payload |
+| ---------------------------------------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| /api/v1/order | GET | get all orders |-|
+| /api/v1/orders/:orderId | GET | fetch a specific order |-|
+| /api/v1 /orders | POST | place a new order |customerName (string), customerAddress (string),  foodOrdered (string)|
+| /api/v1/orders/:orderId | PUT | Updates order state and status |completed (bool), orderStatus (accepted or rejected)|
+
+
 - GET /orders: get all orders
 - GET /orders/<orderId>: fetch a specific order
 - POST /orders: place a new order
 - PUT /orders/<ordersId>: update order status
+
+### How to set up the this project
+- Clone this repository
+- Change directory into the created folder
+- Run `yarn install`
+- Run `yarn test` to test the application
+- Run `yarn devstart` to start developemnt locally
 
 ### Contribution
 - Clone the develop branch of this repository
