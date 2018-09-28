@@ -15,7 +15,7 @@ const getOrderController = (req, res) => {
     return res.status(200).json({
       success: true,
       message: `details of order with id ${orderId}`,
-      order: requestedOrder
+      order: requestedOrder,
     });
   }
   return res.status(400).json({
@@ -29,8 +29,8 @@ const newOrderController = (req, res) => {
   if (customerName && customerAddress && foodOrdered) {
     return res.status(201).json({
       success: true,
-      message: `new order successfully created`,
-      order: orderManager.newOrder(customerName, customerAddress, foodOrdered)
+      message: 'new order successfully created',
+      order: orderManager.newOrder(customerName, customerAddress, foodOrdered),
     });
   }
   return res.status(400).json({
@@ -46,7 +46,7 @@ const updateStatusController = (req, res) => {
 
   if (orderStatus === 'accepted' || orderStatus === 'rejected') {
     order = orderManager.updateOrderStatus(orderId, orderStatus);
-    if (typeof order === 'boolean') {
+    if (order === false) {
       return res.status(400).json({
         success: false,
         message: 'update orderStatus request not completed',
@@ -67,8 +67,8 @@ const updateStatusController = (req, res) => {
   if (order) {
     return res.status(201).json({
       success: true,
-      message: "order update was successful",
-      order: order,
+      message: 'order update was successful',
+      order,
     });
   }
   return res.status(400).json({
