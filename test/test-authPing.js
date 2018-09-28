@@ -51,7 +51,6 @@ describe('Test authPing route', () => {
       expect(data.status).to.equal(403);
     });
     it('returns data.success = false', () => {
-      console.log(data.body);
       expect(data.body.success).to.equal(false);
     });
     it("returns 'Invalid token'", () => {
