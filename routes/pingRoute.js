@@ -2,7 +2,10 @@ import express from 'express';
 
 const pingRoute = express.Router();
 
-const pingController = (req, res) => res.status(200).send('pong');
+const pingController = (req, res) => res.status(200).json({
+  success: true,
+  message: 'pong',
+});
 
 pingRoute.route('/ping').get(pingController);
 

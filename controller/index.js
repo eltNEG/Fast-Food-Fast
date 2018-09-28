@@ -10,7 +10,10 @@ const getOrderController = (req, res) => {
   if (requestedOrder) {
     return res.status(200).json(requestedOrder);
   }
-  return res.status(400).json({ error: `no order with order id ${orderId}` });
+  return res.status(400).json({
+    success: false,
+    message: `no order with order id ${orderId}`,
+  });
 };
 
 const newOrderController = (req, res) => {
@@ -18,33 +21,47 @@ const newOrderController = (req, res) => {
   if (customerName && customerAddress && foodOrdered) {
     return res.status(201).json(orderManager.newOrder(customerName, customerAddress, foodOrdered));
   }
-  return res.status(400).json({ error: 'invalid parameters' });
+  return res.status(400).json({
+    success: false,
+    error: 'invalid parameters',
+  });
 };
 
 const updateStatusController = (req, res) => {
   const { completed, orderStatus } = req.body;
   const { orderId } = req.params;
-  let success;
+  let order;
 
   if (orderStatus === 'accepted' || orderStatus === 'rejected') {
-    success = orderManager.updateOrderStatus(orderId, orderStatus);
-    if (!success) {
-      return res.status(400).json({ error: 'update orderStatus request not completed' });
+    order = orderManager.updateOrderStatus(orderId, orderStatus);
+    if (!order) {
+      return res.status(400).json({
+        success: false,
+        message: 'update orderStatus request not completed',
+      });
     }
   }
 
   if (completed === true) {
-    success = orderManager.completeOrder(orderId);
-    if (!success) {
-      return res.status(400).json({ error: 'completeOrder request not completed' });
+    order = orderManager.completeOrder(orderId);
+    if (!order) {
+      return res.status(400).json({
+        success: false,
+        message: 'completeOrder request not completed',
+      });
     }
   }
 
-  if (success) {
-    const hostname = req.headers.host;
-    return res.status(201).json({ uri: `http://${hostname}/api/v1/order/${orderId}` });
+  if (order) {
+    return res.status(201).json({
+      success: true,
+      order,
+    });
   }
-  return res.status(400).json({ error: 'invalid request parameter' });
+  return res.status(400).json({
+    success: false,
+    message: 'invalid request parameter',
+  });
 };
 
 export default {

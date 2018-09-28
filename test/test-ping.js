@@ -14,7 +14,7 @@ describe('Ping Server', () => {
         `${baseURL}/ping`,
         (error, response, body) => {
           data.status = response.statusCode;
-          data.body = body;
+          data.body = JSON.parse(body);
           done();
         },
       );
@@ -23,7 +23,7 @@ describe('Ping Server', () => {
       expect(data.status).to.equal(200);
     });
     it('respond with pong', () => {
-      expect(data.body).to.equal('pong');
+      expect(data.body.message).to.equal('pong');
     });
   });
 });
