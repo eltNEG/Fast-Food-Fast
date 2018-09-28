@@ -54,7 +54,7 @@ export class Order {
     }
     if (!order.completed) {
       order.orderState = orderStatus;
-      return true;
+      return order;
     }
     return false;
   }
@@ -66,7 +66,7 @@ export class Order {
     }
     if (order.orderState !== orderState.undecided) {
       order.completed = true;
-      return true;
+      return order;
     }
     return false;
   }
