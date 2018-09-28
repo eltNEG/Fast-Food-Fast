@@ -12,7 +12,7 @@ const getOrderController = (req, res) => {
   }
   return res.status(400).json({
     success: false,
-    message: `no order with order id ${orderId}` 
+    message: `no order with order id ${orderId}`,
   });
 };
 
@@ -23,7 +23,7 @@ const newOrderController = (req, res) => {
   }
   return res.status(400).json({
     success: false,
-    error: 'invalid parameters' 
+    error: 'invalid parameters',
   });
 };
 
@@ -37,7 +37,7 @@ const updateStatusController = (req, res) => {
     if (!order) {
       return res.status(400).json({
         success: false,
-        message: 'update orderStatus request not completed' 
+        message: 'update orderStatus request not completed',
       });
     }
   }
@@ -47,21 +47,20 @@ const updateStatusController = (req, res) => {
     if (!order) {
       return res.status(400).json({
         success: false,
-        message: 'completeOrder request not completed' 
+        message: 'completeOrder request not completed',
       });
     }
   }
 
   if (order) {
-    const hostname = req.headers.host;
     return res.status(201).json({
       success: true,
-      order: order
+      order,
     });
   }
   return res.status(400).json({
     success: false,
-    message: 'invalid request parameter' 
+    message: 'invalid request parameter',
   });
 };
 

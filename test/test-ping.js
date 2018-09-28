@@ -23,7 +23,6 @@ describe('Ping Server', () => {
       expect(data.status).to.equal(200);
     });
     it('respond with pong', () => {
-      console.log(data.body)
       expect(data.body.message).to.equal('pong');
     });
   });

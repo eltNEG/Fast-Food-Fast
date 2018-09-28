@@ -284,7 +284,7 @@ describe('Api v1 Server', () => {
     });
 
     it('returns error message', () => {
-      expect(data.body.success).to.equal(false)
+      expect(data.body.success).to.equal(false);
       expect(data.body.message).to.equal('completeOrder request not completed');
     });
   });
@@ -311,8 +311,8 @@ describe('Api v1 Server', () => {
     });
 
     it('returns error message', () => {
-      expect(data.body.success).to.equal(false)
-      expect(data.body.message).to.equal('invalid request parameter')
+      expect(data.body.success).to.equal(false);
+      expect(data.body.message).to.equal('invalid request parameter');
     });
   });
 
@@ -338,8 +338,8 @@ describe('Api v1 Server', () => {
     });
 
     it('returns error message', () => {
-      expect(data.body.success).to.equal(false)
-      expect(data.body.message).to.equal('completeOrder request not completed')
+      expect(data.body.success).to.equal(false);
+      expect(data.body.message).to.equal('completeOrder request not completed');
     });
   });
 
@@ -376,8 +376,8 @@ describe('Api v1 Server', () => {
     });
 
     it('returns error message', () => {
-      expect(data.body.success).to.equal(false)
-      expect(data.body.message).to.equal('update orderStatus request not completed')
+      expect(data.body.success).to.equal(false);
+      expect(data.body.message).to.equal('update orderStatus request not completed');
     });
   });
 });
