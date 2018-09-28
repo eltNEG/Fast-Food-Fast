@@ -1,7 +1,7 @@
 import pingRoute from './pingRoute';
 import orderRoute from './orderRoute';
 import authPing from './authPing';
-import authRoute from './authRoute'
+import authRoute from './authRoute';
 
 const apiVersion = '/api/v1';
 
