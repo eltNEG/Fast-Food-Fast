@@ -2,13 +2,21 @@ import { Order, testOrder } from '../models/orderModel';
 
 const orderManager = new Order({ 0: testOrder }, 0);
 
-const ordersController = (req, res) => res.status(200).json(orderManager.getOrders());
+const ordersController = (req, res) => res.status(200).json({
+  success: true,
+  message: 'list of all orders',
+  orders: orderManager.getOrders(),
+});
 
 const getOrderController = (req, res) => {
   const { orderId } = req.params;
   const requestedOrder = orderManager.getOrder(orderId);
   if (requestedOrder) {
-    return res.status(200).json(requestedOrder);
+    return res.status(200).json({
+      success: true,
+      message: `details of order with id ${orderId}`,
+      order: requestedOrder,
+    });
   }
   return res.status(400).json({
     success: false,
@@ -19,7 +27,11 @@ const getOrderController = (req, res) => {
 const newOrderController = (req, res) => {
   const { customerName, customerAddress, foodOrdered } = req.body;
   if (customerName && customerAddress && foodOrdered) {
-    return res.status(201).json(orderManager.newOrder(customerName, customerAddress, foodOrdered));
+    return res.status(201).json({
+      success: true,
+      message: 'new order successfully created',
+      order: orderManager.newOrder(customerName, customerAddress, foodOrdered),
+    });
   }
   return res.status(400).json({
     success: false,
@@ -34,7 +46,7 @@ const updateStatusController = (req, res) => {
 
   if (orderStatus === 'accepted' || orderStatus === 'rejected') {
     order = orderManager.updateOrderStatus(orderId, orderStatus);
-    if (!order) {
+    if (order === false) {
       return res.status(400).json({
         success: false,
         message: 'update orderStatus request not completed',
@@ -55,6 +67,7 @@ const updateStatusController = (req, res) => {
   if (order) {
     return res.status(201).json({
       success: true,
+      message: 'order update was successful',
       order,
     });
   }
@@ -69,5 +82,4 @@ export default {
   getOrderController,
   newOrderController,
   updateStatusController,
-
 };

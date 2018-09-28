@@ -128,7 +128,7 @@ describe('Api v1 Server', () => {
     });
     it('returns orderId of 0', () => {
       const data2 = JSON.parse(data.body);
-      expect(data2.orderId).to.equal(0);
+      expect(data2.order.orderId).to.equal(0);
     });
   });
 
@@ -170,7 +170,7 @@ describe('Api v1 Server', () => {
           },
         },
         (error, response, body) => {
-          const { orderId } = body;
+          const { orderId } = body.order;
           request.put(
             `${baseURL}/order/${orderId}`,
             {
@@ -189,10 +189,6 @@ describe('Api v1 Server', () => {
     it('returns status code 201', () => {
       expect(data.status).to.equal(201);
     });
-
-    it('returns a json', () => {
-      assert(typeof (data.body), 'json');
-    });
     it('returns a json response', () => {
       assert(typeof (data.body), 'json');
     });
@@ -210,7 +206,7 @@ describe('Api v1 Server', () => {
           },
         },
         (error, response, body) => {
-          const { orderId } = body;
+          const { orderId } = body.order;
           request.put(
             `${baseURL}/order/${orderId}`,
             {
@@ -343,7 +339,7 @@ describe('Api v1 Server', () => {
     });
   });
 
-  describe('PUT /orders - error trying to change order stated of completed order', () => {
+  describe('PUT /orders - error trying to change order state of completed order', () => {
     const data = {};
     before((done) => {
       request.put(
