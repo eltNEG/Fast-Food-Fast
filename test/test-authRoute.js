@@ -1,3 +1,4 @@
+/*
 import request from "request";
 import { expect, assert } from "chai";
 
@@ -34,3 +35,4 @@ describe("Test signup route", () => {
     });
   });
 });
+*/
