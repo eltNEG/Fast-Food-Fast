@@ -1,8 +1,14 @@
 import { Pool } from 'pg';
 
+let useSSL;
+if(process.env.NODE_ENV === 'development'){
+  useSSL = false
+} else {
+  useSSL = true
+}
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: true,
+  ssl: useSSL
 });
 
 module.exports = {

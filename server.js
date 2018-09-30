@@ -1,8 +1,7 @@
+import _ from './config'
 import express from 'express';
 import routes from './routes';
-import loadConfig from './config';
 
-loadConfig();
 const app = express();
 const port = process.env.PORT || 3000;
 
