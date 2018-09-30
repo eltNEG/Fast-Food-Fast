@@ -250,11 +250,11 @@ describe('Api v1 Server', () => {
       );
     });
     it('returns status code 400', () => {
-      expect(data.status).to.equal(400);
+      expect(data.status).to.equal(404);
     });
 
     it('returns error message', () => {
-      expect(data.body.message).to.equal('update orderStatus request not completed');
+      expect(data.body.message).to.equal('order not found');
     });
   });
 
@@ -373,7 +373,7 @@ describe('Api v1 Server', () => {
 
     it('returns error message', () => {
       expect(data.body.success).to.equal(false);
-      expect(data.body.message).to.equal('update orderStatus request not completed');
+      expect(data.body.message).to.equal('Order already completed');
     });
   });
 });
