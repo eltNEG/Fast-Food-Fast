@@ -47,8 +47,14 @@ const updateStatusController = (req, res) => {
   if (orderStatus === 'accepted' || orderStatus === 'rejected') {
     order = orderManager.updateOrderStatus(orderId, orderStatus);
     if (typeof order === 'string') {
-      let statusCode
-      order === 'order not found' ? statusCode = 404 : statusCode = 400
+      let statusCode;
+      if (order === 'order not found') {
+        statusCode = 404;
+      } else {
+        (
+          statusCode = 400
+        );
+      }
       return res.status(statusCode).json({
         success: false,
         message: order,
