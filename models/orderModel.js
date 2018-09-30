@@ -50,13 +50,13 @@ export class Order {
   updateOrderStatus(orderId, orderStatus) {
     const order = this.getOrder(orderId);
     if (!order) {
-      return false;
+      return 'order not found';
     }
     if (!order.completed) {
       order.orderState = orderStatus;
       return order;
     }
-    return false;
+    return 'Order already completed';
   }
 
   completeOrder(orderId) {
