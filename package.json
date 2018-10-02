@@ -27,7 +27,7 @@
     "start": "npm run babel-node server.js",
     "build": "babel . -d dist --ignore node_modules,UI",
     "eslint": "./node_modules/.bin/eslint",
-    "test": "mocha --require babel-polyfill --require babel-register",
+    "test": "mocha --require babel-polyfill --require babel-register --exit",
     "clean": "rm -rf dist coverage",
     "cov": "npm run build && ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --  -R spec dist/test/*.js",
     "coverage": "npm run build && ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --  -R spec dist/test/*.js && cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js && npm run clean || npm run clean",
