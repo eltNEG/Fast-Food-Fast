@@ -21,8 +21,7 @@ const postOrders = (req, res) => {
   // get necessary parameters
   const { customerName, customerAddress, foodOrdered } = req.body;
   const { userid } = req.decoded;
-  const orderStatus = 'undecided';
-  const completed = false;
+  const orderStatus = 'new';
 
   if (!customerName || !customerAddress || !foodOrdered) {
     return res.status(400).json({
@@ -33,8 +32,8 @@ const postOrders = (req, res) => {
 
   // define the query
   const query = `
-    INSERT INTO Orders (customerName, customerAddress, foodOrdered, orderStatus, fk_userId, completed) 
-    VALUES($1, $2, $3, $4, $5, $6) RETURNING *;
+    INSERT INTO Orders (customerName, customerAddress, foodOrdered, orderStatus, fk_userId) 
+    VALUES($1, $2, $3, $4, $5) RETURNING *;
     `;
 
   // query the database and handle response
@@ -46,7 +45,7 @@ const postOrders = (req, res) => {
         foodOrdered,
         orderStatus,
         userid,
-        completed,
+        //completed,
       ])
       .then(dbRes => res.status(201).json({
         success: true,

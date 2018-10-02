@@ -21,10 +21,13 @@ export const createUser = (req, res) => {
       message: 'user succesfully created',
       userId: dbRes.rows[0].userid,
     }))
-    .catch(() => res.status(400).json({
-      success: false,
-      message: 'username already exist',
-    }))
+    .catch((err) => {
+      console.log(err)
+      res.status(400).json({
+        success: false,
+        message: 'username already exist',
+      })
+    })
     .then(client.release()));
 };
 

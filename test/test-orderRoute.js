@@ -10,7 +10,7 @@ describe('Api v1 Server', () => {
       `${baseURL}/auth/login`,
       {
         json: {
-          username: 'testuse1131',
+          username: 'testuser',
           password: 'testuser',
         },
       },
