@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   useSSL = true;
 }
-console.log(useSSL)
+console.log(useSSL);
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: useSSL,

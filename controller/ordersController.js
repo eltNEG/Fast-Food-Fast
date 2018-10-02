@@ -45,7 +45,7 @@ const postOrders = (req, res) => {
         foodOrdered,
         orderStatus,
         userid,
-        //completed,
+        // completed,
       ])
       .then(dbRes => res.status(201).json({
         success: true,
