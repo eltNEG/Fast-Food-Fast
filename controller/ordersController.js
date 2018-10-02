@@ -21,7 +21,7 @@ const postOrders = (req, res) => {
   // get necessary parameters
   const { customerName, customerAddress, foodOrdered } = req.body;
   const { userid } = req.decoded;
-  const orderState = 'undecided';
+  const orderStatus = 'undecided';
   const completed = false;
 
   if (!customerName || !customerAddress || !foodOrdered) {
@@ -33,7 +33,7 @@ const postOrders = (req, res) => {
 
   // define the query
   const query = `
-    INSERT INTO Orders (customerName, customerAddress, foodOrdered, orderState, fk_userId, completed) 
+    INSERT INTO Orders (customerName, customerAddress, foodOrdered, orderStatus, fk_userId, completed) 
     VALUES($1, $2, $3, $4, $5, $6) RETURNING *;
     `;
 
@@ -44,7 +44,7 @@ const postOrders = (req, res) => {
         customerName,
         customerAddress,
         foodOrdered,
-        orderState,
+        orderStatus,
         userid,
         completed,
       ])
@@ -105,7 +105,7 @@ const updateOrderStatus = (req, res) => {
   /** change orderState to orderStatus */
   const query = `
       UPDATE Orders 
-      SET orderState = $2
+      SET orderStatus = $2
       WHERE orderId = $1 RETURNING *;
         `;
 
