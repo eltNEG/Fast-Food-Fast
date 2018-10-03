@@ -16,9 +16,8 @@ authPingRoute.route('/auth/ping').get((req, res) => {
 });
 
 authPingRoute
-  .use(jwtAuthenticator)
   .route('/auth/ping')
-  .post((req, res) => {
+  .post(jwtAuthenticator, (req, res) => {
     const { decoded } = req;
     return res.status(200).json({
       success: true,
