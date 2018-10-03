@@ -11,6 +11,7 @@
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "cross-env": "^5.2.0",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
@@ -26,17 +27,21 @@
     "start": "npm run babel-node server.js",
     "build": "babel . -d dist --ignore node_modules,UI",
     "eslint": "./node_modules/.bin/eslint",
-    "test": "mocha --require babel-polyfill --require babel-register",
+    "test": "mocha --timeout 15000 --require babel-polyfill --require babel-register --exit",
+    "local-test": "npm run create-table && npm run seed-users && cross-env NODE_ENV=localtest mocha --timeout 15000 --require babel-polyfill --require babel-register --exit",
     "clean": "rm -rf dist coverage",
     "cov": "npm run build && ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --  -R spec dist/test/*.js",
     "coverage": "npm run build && ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --  -R spec dist/test/*.js && cat ./coverage/lcov.info | node ./node_modules/coveralls/bin/coveralls.js && npm run clean || npm run clean",
-    "create-table": "npm run babel-node ./db/createTable.js"
+    "create-table": "cross-env NODE_ENV=localtest DATABASE_URL_TEST=postgres://postgres@localhost:5432/localtest  npm run babel-node ./db/createTable.js",
+    "seed-users": "cross-env NODE_ENV=localtest DATABASE_URL_TEST=postgres://postgres@localhost:5432/localtest npm run babel-node ./db/createSeedUsers.js",
+    "clean-db": "cross-env NODE_ENV=localtest DATABASE_URL_TEST=postgres://postgres@localhost:5432/localtest npm run babel-node ./db/cleandb.js"
   },
   "eslintIgnore": [
     "node_modules",
     "UI"
   ],
   "devDependencies": {
+    "babel-plugin-transform-runtime": "^6.23.0",
     "chai": "^4.1.2",
     "coveralls": "^3.0.2",
     "eslint": "^5.5.0",

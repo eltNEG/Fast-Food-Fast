@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS Foods (
 );
 `,
     )
-    .then(() => 'Tables created')
+    .then(() => console.log('Tables created'))
     .catch(console.log)
     .then(() => client.release());
 };
