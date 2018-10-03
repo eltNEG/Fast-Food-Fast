@@ -1,6 +1,7 @@
 import express from 'express';
-import routes from './routes';
 import loadConfig from './config';
+import routes from './routes';
+
 
 loadConfig();
 const app = express();
