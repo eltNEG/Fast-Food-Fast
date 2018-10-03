@@ -1,15 +1,16 @@
 import { Pool } from 'pg';
 
-let useSSL, conStr;
+let useSSL; let
+  conStr;
 if (process.env.NODE_ENV === 'development') {
   useSSL = false;
-  conStr = process.env.DATABASE_URL_DEV
-}else if(process.env.NODE_ENV === 'localtest'){
+  conStr = process.env.DATABASE_URL_DEV;
+} else if (process.env.NODE_ENV === 'localtest') {
   useSSL = false;
-  conStr = process.env.DATABASE_URL_TEST 
+  conStr = process.env.DATABASE_URL_TEST;
 } else {
   useSSL = true;
-  conStr = process.env.DATABASE_URL
+  conStr = process.env.DATABASE_URL;
 }
 console.log(useSSL);
 console.log(conStr);

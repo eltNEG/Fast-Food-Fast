@@ -1,4 +1,4 @@
-import db from './index'
+import db from './index';
 
 const createTables = async () => {
   const client = await db.getClient();
@@ -10,9 +10,9 @@ const createTables = async () => {
         drop table if exists Foods;
         drop table if exists Users;
         drop table if exists Roles;    
-        `
+        `,
     )
-    .then(res => console.log("tables dropped"))
+    .then(() => console.log('tables dropped'))
     .catch(console.log)
     .then(() => client.release());
 };
