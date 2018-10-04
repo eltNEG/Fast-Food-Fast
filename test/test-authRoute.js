@@ -33,4 +33,34 @@ describe('Api v1 authentication route', () => {
       expect(data.body.success).to.equal(true);
     });
   });
+
+  describe('POST /auth/login', () => {
+    const data = {};
+    before((done) => {
+      request.post(
+        `${baseURL}/auth/login`,
+        {
+          json: {
+            username: 'testuser',
+            password: 'testuser',
+          },
+        },
+        (error, response, body) => {
+          data.status = response.statusCode;
+          data.body = body;
+          done();
+        },
+      );
+    });
+
+    it('returns status code 200', () => {
+      expect(data.status).to.equal(200);
+    });
+    it('returns a message - user found', () => {
+      expect(data.body.message).to.equal('user found');
+    });
+    it('returns suscess', () => {
+      expect(data.body.success).to.equal(true);
+    });
+  });
 });
