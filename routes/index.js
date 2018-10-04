@@ -10,6 +10,7 @@ const routes = (app) => {
   app.use(apiVersion, pingRoute);
   app.use(apiVersion, orderRoute);
   app.use(apiVersion, authPing);
+  app.use(apiVersion, menuRoute);
   app.use(apiVersion, authRoute);
 };
 
