@@ -21,11 +21,10 @@ export const createUser = (req, res) => {
       message: 'user succesfully created',
       userId: dbRes.rows[0].userid,
     }))
-    .catch((err) => {
-      console.log(err);
+    .catch(({ message }) => {
       res.status(400).json({
         success: false,
-        message: 'username already exist',
+        message,
       });
     })
     .then(client.release()));
@@ -72,12 +71,9 @@ export const loginUser = (req, res) => {
         message: 'invalid password',
       });
     })
-    .catch((err) => {
-      console.log(err);
-      return res.status(400).json({
-        success: false,
-        message: 'username does not exist',
-      });
-    })
+    .catch(({ message }) => res.status(400).json({
+      success: false,
+      message,
+    }))
     .then(() => client.release()));
 };

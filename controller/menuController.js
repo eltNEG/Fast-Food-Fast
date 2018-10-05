@@ -11,7 +11,7 @@ const getMenu = (req, res) => {
     .then(dbRes => res.status(200).json({
       success: true,
       message: 'menu list',
-      orders: dbRes.rows,
+      menu: dbRes.rows,
     }))
     .then(() => client.release()));
 };
@@ -20,6 +20,12 @@ const postMenu = (req, res) => {
   // get params
   const { menu } = req.body;
 
+  if (!menu) {
+    return res.status(422).json({
+      success: true,
+      message: 'Incomplete input parameter',
+    });
+  }
   // query
   // change food to menu
   const query = `
@@ -30,7 +36,10 @@ const postMenu = (req, res) => {
     .then(dbRes => res.status(200).json({
       success: true,
       message: 'new menu added successfully',
-      orders: dbRes.rows,
+      menu: dbRes.rows,
+    })).catch(({ message }) => res.status(400).json({
+      success: false,
+      message,
     }))
     .then(() => client.release()));
 };
