@@ -5,36 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Order any fast food and it will be delivered to you fast anywhere.
-    We have amala, pounded yam, Jollof rice, any soup and much more.">
+        We have amala, pounded yam, Jollof rice, any soup and much more.">
     <title>Your fast food delivery service - Fast-Food-Fast</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/auth.css">
 </head>
 
 <body>
-    <main>
-        <div class='top-bar'>
-            <div class='tb-left-item'>Fast-Food-Fast</div>
-            <div class='tb-middle-item'></div>
-                <a href='https://eltneg.github.io/Fast-Food-Fast/UI/sign-up.html' class='tb-menu'>Register</a>
-                <a href='https://eltneg.github.io/Fast-Food-Fast/UI/index.html' class='tb-menu lm-2em'>Sign in</a>
+    <div class='grid-container grid-auth-page'>
+        <div class='topbar flex-container white'>
+            <div class="left-menu"><a href='https://eltneg.github.io/Fast-Food-Fast/UI/index.html'>Fast Food Fast</a></div>
+            <div class="flex-container right-menu home-right-menu">
+                <a href='https://eltneg.github.io/Fast-Food-Fast/UI/sign-up.html'>Sign Up</a>
+                <a href='https://eltneg.github.io/Fast-Food-Fast/UI/login.html'>Login</a>
+                <a href='https://eltneg.github.io/Fast-Food-Fast/UI/login.html'>Cart [0]</a>
+            </div>
         </div>
-        <div class="container">
+        <div class='auth-img'>
+            <img src="images/main.jpeg" alt='main' />
             <h1 class="header row stretch">Welcome to Fast-Food-Fast!</h1>
-            <div class="form-header row">Login to your account</div>
-
-            <form>
-                <input type="email" class="input-field row" placeholder="Email" />
-                <input type="password" class="input-field row" placeholder="Password" />
-                <div class="row middle">
-                    <button class="form-btn middle">Log in</button>
-                    <div class="form-footer middle">Do not have an account?
-                        <a class="link" href="https://eltneg.github.io/Fast-Food-Fast/UI/sign-up.html">Sign up</a>
-                    </div>
-                </div>
-
-            </form>
         </div>
-    </main>
+        <div class="container auth-side">
+            <div class="form-container">
+                <h1 class="hidable-header row stretch">Welcome to Fast-Food-Fast!</h1>
+                <div class="form-header row">Login to your account</div>
+                <form>
+                    <input type="email" class="input-field row" placeholder="Username" />
+                    <input type="password" class="input-field row" placeholder="Password" />
+                    <div class="row middle">
+                        <button class="form-btn middle">Log in</button>
+                        <div class="form-footer middle">Do not have an account?
+                            <a class="link" href="https://eltneg.github.io/Fast-Food-Fast/UI/sign-up.html">Sign up</a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
 </body>
 
 </html>
