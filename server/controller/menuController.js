@@ -11,7 +11,9 @@ const getMenu = (req, res) => {
     .then(dbRes => res.status(200).json({
       success: true,
       message: 'menu list',
-      menu: dbRes.rows,
+      data: {
+        menu: dbRes.rows,
+      }
     }))
     .then(() => client.release()));
 };

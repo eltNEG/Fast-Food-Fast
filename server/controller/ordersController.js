@@ -135,7 +135,7 @@ const updateOrderStatus = (req, res) => {
 
   // query the database and handle response
   return db.getClient().then((client) => {
-    client.query(query, [orderId, orderStatus]).then(dbRes => res.status(201).json({
+    client.query(query, [orderId, orderStatus]).then(dbRes => res.status(200).json({
       success: true,
       message: 'details of the updated order',
       data: {

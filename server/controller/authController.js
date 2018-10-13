@@ -18,12 +18,17 @@ export const createUser = (req, res) => {
     .query(query, [username, hashedPassword, 'user'])
     .then((dbRes) => {
       const user = dbRes.rows[0];
+      const authUser = {
+        userid: user.userid,
+        username: user.username,
+        role: user.role,
+      }; 
       return res.status(201).json({
         success: true,
         message: 'user succesfully created',
         data: {
-          user,
-          token: jwt.sign(user, process.env.JWT_SECRET, {
+          user: authUser,
+          token: jwt.sign(authUser, process.env.JWT_SECRET, {
             expiresIn: '1h',
           }),
         },
