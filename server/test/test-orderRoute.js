@@ -223,8 +223,8 @@ describe('Api v1 Server', () => {
         );
       });
     });
-    it('returns status code 201', () => {
-      expect(data.status).to.equal(201);
+    it('returns status code 200', () => {
+      expect(data.status).to.equal(200);
     });
     it('returns a json response', () => {
       assert(typeof data.body, 'json');

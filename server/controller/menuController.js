@@ -13,7 +13,7 @@ const getMenu = (req, res) => {
       message: 'menu list',
       data: {
         menu: dbRes.rows,
-      }
+      },
     }))
     .then(() => client.release()));
 };

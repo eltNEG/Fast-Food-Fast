@@ -22,7 +22,7 @@ export const createUser = (req, res) => {
         userid: user.userid,
         username: user.username,
         role: user.role,
-      }; 
+      };
       return res.status(201).json({
         success: true,
         message: 'user succesfully created',
