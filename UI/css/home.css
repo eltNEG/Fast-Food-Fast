@@ -41,13 +41,14 @@
   margin-top: 1em;
   border-radius: 2px;
   position: absolute;
+  opacity: 0.85;
 }
 
 .img-overlay {
   position: absolute;
   top: 30%;
   left: 10%;
-  color: rgba(255, 0, 0, 0.946);
+  color: rgba(255, 0, 0, 0.959);
   font-size: 2em;
   width: 11em;
 }

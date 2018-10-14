@@ -11,20 +11,33 @@ export const createUser = (req, res) => {
     });
   }
   const query = `
-      INSERT INTO Users (username, password, role) VALUES($1, $2, $3) RETURNING userid;
+      INSERT INTO Users (username, password, role) VALUES($1, $2, $3) RETURNING *;
       `;
   const hashedPassword = bcrypt.hashSync(password, bcrypt.genSaltSync());
   return db.getClient().then(client => client
     .query(query, [username, hashedPassword, 'user'])
-    .then(dbRes => res.status(201).json({
-      success: true,
-      message: 'user succesfully created',
-      userId: dbRes.rows[0].userid,
-    }))
-    .catch(({ message }) => {
+    .then((dbRes) => {
+      const user = dbRes.rows[0];
+      const authUser = {
+        userid: user.userid,
+        username: user.username,
+        role: user.role,
+      };
+      return res.status(201).json({
+        success: true,
+        message: 'user succesfully created',
+        data: {
+          user: authUser,
+          token: jwt.sign(authUser, process.env.JWT_SECRET, {
+            expiresIn: '1h',
+          }),
+        },
+      });
+    })
+    .catch(() => {
       res.status(400).json({
         success: false,
-        message,
+        message: 'db error - sign up not successful',
       });
     })
     .then(client.release()));
@@ -60,10 +73,12 @@ export const loginUser = (req, res) => {
         return res.status(200).json({
           success: true,
           message: 'user found',
-          user: authUser,
-          token: jwt.sign(authUser, process.env.JWT_SECRET, {
-            expiresIn: '1h',
-          }),
+          data: {
+            user: authUser,
+            token: jwt.sign(authUser, process.env.JWT_SECRET, {
+              expiresIn: '1h',
+            }),
+          },
         });
       }
       return res.status(400).json({
@@ -71,9 +86,9 @@ export const loginUser = (req, res) => {
         message: 'invalid password',
       });
     })
-    .catch(({ message }) => res.status(400).json({
+    .catch(() => res.status(400).json({
       success: false,
-      message,
+      message: 'db error - login not successful',
     }))
     .then(() => client.release()));
 };

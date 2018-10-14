@@ -12,7 +12,9 @@ const getOrders = (req, res) => {
     .then(dbRes => res.status(200).json({
       success: true,
       message: 'list of all orders',
-      orders: dbRes.rows,
+      data: {
+        orders: dbRes.rows,
+      },
     }))
     .then(() => client.release()));
 };
@@ -50,11 +52,13 @@ const postOrders = (req, res) => {
       .then(dbRes => res.status(201).json({
         success: true,
         message: 'New order created',
-        order: dbRes.rows[0],
+        data: {
+          order: dbRes.rows[0],
+        },
       }))
-      .catch(({ message }) => res.status(500).json({
+      .catch(() => res.status(400).json({
         success: false,
-        message,
+        message: 'db error - create new order not successful',
       }))
       .then(client.release());
   });
@@ -80,7 +84,9 @@ const getSpecificUserOrder = (req, res) => {
     client.query(query, [userId]).then(dbRes => res.status(200).json({
       success: true,
       message: 'List of orders for the specified user',
-      orders: dbRes.rows,
+      data: {
+        orders: dbRes.rows,
+      },
     })).then(client.release());
   });
 };
@@ -99,7 +105,9 @@ const getSpecificOrder = (req, res) => {
     client.query(query, [orderId]).then(dbRes => res.status(200).json({
       success: true,
       message: 'details of the requested order',
-      order: dbRes.rows[0] || [],
+      data: {
+        order: dbRes.rows[0] || [],
+      },
     })).then(client.release());
   });
 };
@@ -127,10 +135,12 @@ const updateOrderStatus = (req, res) => {
 
   // query the database and handle response
   return db.getClient().then((client) => {
-    client.query(query, [orderId, orderStatus]).then(dbRes => res.status(201).json({
+    client.query(query, [orderId, orderStatus]).then(dbRes => res.status(200).json({
       success: true,
       message: 'details of the updated order',
-      order: dbRes.rows,
+      data: {
+        order: dbRes.rows,
+      },
     })).then(client.release());
   });
 };

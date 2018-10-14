@@ -39,7 +39,7 @@ describe('Api v1 Server', () => {
     before((done) => {
       const options = {
         headers: {
-          Authorization: admin.token,
+          Authorization: admin.data.token,
           'Content-Type': 'application/json',
         },
       };
@@ -63,7 +63,7 @@ describe('Api v1 Server', () => {
     before((done) => {
       const options = {
         headers: {
-          Authorization: user.token,
+          Authorization: user.data.token,
           'Content-Type': 'application/json',
         },
         json: {
@@ -91,7 +91,7 @@ describe('Api v1 Server', () => {
     before((done) => {
       const options = {
         headers: {
-          Authorization: user.token,
+          Authorization: user.data.token,
           'Content-Type': 'application/json',
         },
         json: {
@@ -119,7 +119,7 @@ describe('Api v1 Server', () => {
     before((done) => {
       const options = {
         headers: {
-          Authorization: user.token,
+          Authorization: user.data.token,
           'Content-Type': 'application/json',
         },
         json: {
@@ -150,7 +150,7 @@ describe('Api v1 Server', () => {
     before((done) => {
       const options = {
         headers: {
-          Authorization: admin.token,
+          Authorization: admin.data.token,
           'Content-Type': 'application/json',
         },
       };
@@ -168,7 +168,7 @@ describe('Api v1 Server', () => {
     });
     it('returns orderId of 1', () => {
       const data2 = JSON.parse(data.body);
-      expect(data2.order.orderid).to.equal(1);
+      expect(data2.data.order.orderid).to.equal(1);
     });
   });
 
@@ -200,7 +200,7 @@ describe('Api v1 Server', () => {
     before((done) => {
       const options = {
         headers: {
-          Authorization: admin.token,
+          Authorization: admin.data.token,
           'Content-Type': 'application/json',
         },
         json: {
@@ -211,7 +211,7 @@ describe('Api v1 Server', () => {
         },
       };
       request.post(`${baseURL}/orders`, options, (error, response, body) => {
-        const { orderid } = body.order;
+        const { orderid } = body.data.order;
         request.put(
           `${baseURL}/orders/${orderid}`,
           options,
@@ -223,8 +223,8 @@ describe('Api v1 Server', () => {
         );
       });
     });
-    it('returns status code 201', () => {
-      expect(data.status).to.equal(201);
+    it('returns status code 200', () => {
+      expect(data.status).to.equal(200);
     });
     it('returns a json response', () => {
       assert(typeof data.body, 'json');
