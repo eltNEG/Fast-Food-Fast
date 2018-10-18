@@ -3,12 +3,13 @@ import menuController from '../controller/menuController';
 
 import jwtAuthenticator from '../customMiddleware/jwtAuthenticator';
 import onlyAdmin from '../customMiddleware/onlyAdmin';
+import validate from '../customMiddleware/validator';
 
 const menuRoute = express.Router();
 
 menuRoute
   .route('/menu')
   .get(menuController.getMenu)
-  .post(jwtAuthenticator, onlyAdmin, menuController.postMenu);
+  .post(jwtAuthenticator, onlyAdmin, validate, menuController.postMenu);
 
 export default menuRoute;

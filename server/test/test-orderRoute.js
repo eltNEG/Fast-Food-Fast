@@ -39,7 +39,7 @@ describe('Api v1 Server', () => {
     before((done) => {
       const options = {
         headers: {
-          Authorization: admin.token,
+          Authorization: admin.data.token,
           'Content-Type': 'application/json',
         },
       };
@@ -63,13 +63,13 @@ describe('Api v1 Server', () => {
     before((done) => {
       const options = {
         headers: {
-          Authorization: user.token,
+          Authorization: user.data.token,
           'Content-Type': 'application/json',
         },
         json: {
           customerName: 'test name2',
           customerAddress: 'test address2',
-          foodOrdered: 'test-food2',
+          foodOrdered: 'test food2',
         },
       };
       request.post(`${baseURL}/orders`, options, (error, response, body) => {
@@ -91,7 +91,7 @@ describe('Api v1 Server', () => {
     before((done) => {
       const options = {
         headers: {
-          Authorization: user.token,
+          Authorization: user.data.token,
           'Content-Type': 'application/json',
         },
         json: {
@@ -119,7 +119,7 @@ describe('Api v1 Server', () => {
     before((done) => {
       const options = {
         headers: {
-          Authorization: user.token,
+          Authorization: user.data.token,
           'Content-Type': 'application/json',
         },
         json: {
@@ -150,11 +150,11 @@ describe('Api v1 Server', () => {
     before((done) => {
       const options = {
         headers: {
-          Authorization: admin.token,
+          Authorization: admin.data.token,
           'Content-Type': 'application/json',
         },
       };
-      request.get(`${baseURL}/order/1`, options, (error, response, body) => {
+      request.get(`${baseURL}/orders/1`, options, (error, response, body) => {
         data.status = response.statusCode;
         data.body = body;
         done();
@@ -168,7 +168,7 @@ describe('Api v1 Server', () => {
     });
     it('returns orderId of 1', () => {
       const data2 = JSON.parse(data.body);
-      expect(data2.order[0].orderid).to.equal(1);
+      expect(data2.data.order.orderid).to.equal(1);
     });
   });
 
@@ -200,7 +200,7 @@ describe('Api v1 Server', () => {
     before((done) => {
       const options = {
         headers: {
-          Authorization: admin.token,
+          Authorization: admin.data.token,
           'Content-Type': 'application/json',
         },
         json: {
@@ -211,9 +211,9 @@ describe('Api v1 Server', () => {
         },
       };
       request.post(`${baseURL}/orders`, options, (error, response, body) => {
-        const { orderid } = body.order[0];
+        const { orderid } = body.data.order;
         request.put(
-          `${baseURL}/order/${orderid}`,
+          `${baseURL}/orders/${orderid}`,
           options,
           (error2, response2, body2) => {
             data.status = response2.statusCode;
@@ -223,8 +223,8 @@ describe('Api v1 Server', () => {
         );
       });
     });
-    it('returns status code 201', () => {
-      expect(data.status).to.equal(201);
+    it('returns status code 200', () => {
+      expect(data.status).to.equal(200);
     });
     it('returns a json response', () => {
       assert(typeof data.body, 'json');

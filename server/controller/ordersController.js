@@ -12,7 +12,9 @@ const getOrders = (req, res) => {
     .then(dbRes => res.status(200).json({
       success: true,
       message: 'list of all orders',
-      orders: dbRes.rows,
+      data: {
+        orders: dbRes.rows,
+      },
     }))
     .then(() => client.release()));
 };
@@ -49,16 +51,29 @@ const postOrders = (req, res) => {
       ])
       .then(dbRes => res.status(201).json({
         success: true,
-        message: 'list of all orders',
-        order: dbRes.rows,
+        message: 'New order created',
+        data: {
+          order: dbRes.rows[0],
+        },
       }))
-      .catch(console.log)
+      .catch(() => res.status(400).json({
+        success: false,
+        message: 'db error - create new order not successful',
+      }))
       .then(client.release());
   });
 };
 
 const getSpecificUserOrder = (req, res) => {
   const { userId } = req.params;
+  const { userid } = req.decoded;
+
+  if (Number(userId) !== Number(userid)) {
+    return res.status(401).json({
+      success: false,
+      message: 'cannot get the order of another user',
+    });
+  }
   const query = `
     SELECT * from Orders
     where fk_userid = $1
@@ -69,7 +84,9 @@ const getSpecificUserOrder = (req, res) => {
     client.query(query, [userId]).then(dbRes => res.status(200).json({
       success: true,
       message: 'List of orders for the specified user',
-      order: dbRes.rows,
+      data: {
+        orders: dbRes.rows,
+      },
     })).then(client.release());
   });
 };
@@ -88,7 +105,9 @@ const getSpecificOrder = (req, res) => {
     client.query(query, [orderId]).then(dbRes => res.status(200).json({
       success: true,
       message: 'details of the requested order',
-      order: dbRes.rows,
+      data: {
+        order: dbRes.rows[0] || [],
+      },
     })).then(client.release());
   });
 };
@@ -99,6 +118,12 @@ const updateOrderStatus = (req, res) => {
   const { orderStatus } = req.body;
 
   // check if order status
+  if (!['new', 'processing', 'cancelled', 'complete'].includes(orderStatus.toLowerCase())) {
+    return res.status(422).json({
+      success: true,
+      message: 'order status is not accepted',
+    });
+  }
 
   // query
   /** change orderState to orderStatus */
@@ -110,10 +135,12 @@ const updateOrderStatus = (req, res) => {
 
   // query the database and handle response
   return db.getClient().then((client) => {
-    client.query(query, [orderId, orderStatus]).then(dbRes => res.status(201).json({
+    client.query(query, [orderId, orderStatus]).then(dbRes => res.status(200).json({
       success: true,
-      message: 'details of the requested order',
-      order: dbRes.rows,
+      message: 'details of the updated order',
+      data: {
+        order: dbRes.rows,
+      },
     })).then(client.release());
   });
 };
