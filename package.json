@@ -41,7 +41,8 @@
   },
   "eslintIgnore": [
     "node_modules",
-    "UI"
+    "UI",
+    "public"
   ],
   "devDependencies": {
     "chai": "^4.1.2",
