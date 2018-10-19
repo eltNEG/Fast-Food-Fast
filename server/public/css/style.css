@@ -393,3 +393,7 @@ a.tb-menu {
     width: 20%;
   }
 }
+
+.food-item-table tr :hover {
+  background-color: #f1f3f4;
+}
