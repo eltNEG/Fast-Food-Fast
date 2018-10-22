@@ -66,3 +66,6 @@ const validateSignup = (event) => {
       console.log(jsonData.message);
     });
 };
+
+window.validateLogin = validateLogin;
+window.validateSignup = validateSignup;

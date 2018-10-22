@@ -10,8 +10,8 @@ $(document).ready(() => {
         $('#food-item-list').append(`
           <div class='food-item-case'>
             <img onclick="addToCart(event,'${
-              food.foodname
-            }', true)" class='food-items' src="https://www.dropbox.com/s/fgt9obc0tdrx5hd/pancake.jpeg?raw=1" alt='food-item'>
+  food.foodname
+}', true)" class='food-items' src="https://www.dropbox.com/s/fgt9obc0tdrx5hd/pancake.jpeg?raw=1" alt='food-item'>
             <div class='food-item-footer'>
                 <div class="food-name">${food.foodname}</div>
                 <div class="food-price"> ₦1,200.00</div>
@@ -23,8 +23,6 @@ $(document).ready(() => {
         `);
       }
     }));
-
-  
 });
 
 const addToCart = (event, foodname, gotoBuy = false) => {
@@ -43,6 +41,8 @@ const addToCart = (event, foodname, gotoBuy = false) => {
   //   fffCart = foodname
   // }
   // localStorage.setItem('fffCart', fffCart)
-  //localStorage.removeItem('fffCart');
+  // localStorage.removeItem('fffCart');
   document.getElementById('cart-item').innerText = Number(document.getElementById('cart-item').innerText) + 1;
 };
+
+window.addToCart = addToCart;
