@@ -9,6 +9,7 @@
     <title>Your fast food delivery service - Fast-Food-Fast</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -16,8 +17,8 @@
         <div class='topbar flex-container white'>
             <div class="left-menu">Fast Food Fast</div>
             <div class="flex-container right-menu ">
-                <a href='https://eltneg.github.io/Fast-Food-Fast/UI/index.html'>logout</a>
-                <a href='https://eltneg.github.io/Fast-Food-Fast/UI/checkout.html'>Cart [0]</a>
+                <a href='./index.html'>logout</a>
+                <a href='./checkout.html'>Cart [<span id="cart-item">0</span>]</a>
             </div>
         </div>
         <div class='mid flex-container'>
@@ -30,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class='bottom flex-container flex-wrap'>
+        <div class='bottom flex-container flex-wrap' id='food-item-list' >
             <div class='food-item-case'>
                 <img class='food-items' src="https://www.dropbox.com/s/zze8nto1uiiakd5/shawarma.jpeg?raw=1" alt='food-item'>
                 <div class='food-item-footer'>
@@ -93,7 +94,7 @@
             <div>©2018 Fast Food Fast - Andela Bootcamp challenge</div>
         </div>
     </div>
-
+    <script src="./js/landing-page.js" ></script>
 </body>
 
 </html>
