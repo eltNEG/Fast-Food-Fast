@@ -20,9 +20,9 @@ const getMenu = (req, res) => {
 
 const postMenu = (req, res) => {
   // get params
-  const { menu } = req.body;
+  const { menu, imgUrl } = req.body;
 
-  if (!menu) {
+  if (!menu || !imgUrl) {
     return res.status(422).json({
       success: true,
       message: 'Incomplete input parameter',
@@ -31,10 +31,10 @@ const postMenu = (req, res) => {
   // query
   // change food to menu
   const query = `
-            INSERT INTO Foods (foodName) VALUES ($1) RETURNING *;
+            INSERT INTO Foods (foodName, url) VALUES ($1) RETURNING *;
         `;
   return db.getClient().then(client => client
-    .query(query, [menu])
+    .query(query, [menu, imgUrl])
     .then(dbRes => res.status(201).json({
       success: true,
       message: 'new menu added successfully',
