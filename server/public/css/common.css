@@ -67,3 +67,7 @@ body {
         width: 6em;
     }
 }
+
+.hide {
+  display: none;
+}

@@ -24,7 +24,7 @@ const postMenu = (req, res) => {
 
   if (!menu || !imgUrl) {
     return res.status(422).json({
-      success: true,
+      success: false,
       message: 'Incomplete input parameter',
     });
   }
@@ -52,33 +52,27 @@ const postMenu = (req, res) => {
 };
 
 const updateMenu = (req, res) => {
-  let query; let
-    param;
   const { foodId } = req.params;
   const { menu, imgUrl } = req.body;
 
   // query
   /** change orderState to orderStatus */
-  if (menu) {
-    query = `
-    UPDATE Foods 
-    SET foodName = $2
-    WHERE foodId = $1 RETURNING *;
-      `;
-    param = menu;
-  } if (imgUrl) {
-    query = `
-    UPDATE Foods 
-    SET url = $2
-    WHERE foodId = $1 RETURNING *;
-      `;
-    param = imgUrl;
+  if (!menu || !imgUrl) {
+    return res.status(422).json({
+      success: false,
+      message: 'Incomplete input parameter',
+    });
   }
-
+  const query = `
+    UPDATE Foods SET
+    foodName = $2,
+    url = $3
+    WHERE foodId = $1 RETURNING *;
+      `;
 
   // query the database and handle response
   return db.getClient().then((client) => {
-    client.query(query, [foodId, param]).then(dbRes => res.status(200).json({
+    client.query(query, [foodId, menu, imgUrl]).then(dbRes => res.status(200).json({
       success: true,
       message: 'Menu succesfully updated',
       data: {
