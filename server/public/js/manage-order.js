@@ -1,22 +1,21 @@
-const userid = localStorage.getItem("fffUser");
-const token = localStorage.getItem("fffToken");
-const baseUrl = `http://localhost:3000/api/v1`;
+const token = localStorage.getItem('fffToken');
+const baseUrl = 'http://localhost:3000/api/v1';
 
 const loadOrders = () => {
   const options = {
-    method: "GET",
+    method: 'GET',
     headers: {
-      Accept: "application/json, text/plain, */*",
-      "Content-Type": "application/json",
-      authorization: token
-    }
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+      authorization: token,
+    },
   };
   fetch(`${baseUrl}/orders`, options)
     .then(res => res.json())
-    .then(jsonData => {
+    .then((jsonData) => {
       if (jsonData.success) {
-        jsonData.data.orders.forEach(order => {
-          $("tbody").append(`
+        jsonData.data.orders.forEach((order) => {
+          $('tbody').append(`
                 <tr id='${order.orderid}tr'>
                 <td>${order.customername}</td>
                 <td>${order.foodordered}</td>
@@ -24,10 +23,10 @@ const loadOrders = () => {
                 <td>${new Date(order.dateordered).toLocaleDateString()}</td>
                 <td>
                     <select id='${
-                      order.orderid
-                    }select' onchange="handleChange('${order.orderid}', '${
-            order.orderstatus
-          }')">
+  order.orderid
+}select' onchange="handleChange('${order.orderid}', '${
+  order.orderstatus
+}')">
                         <option hidden class="accepted">--------</option>
                         <option value="processing" class="accepted">processing</option>
                         <option value="cancelled" class="declined">cancelled</option>
@@ -59,23 +58,26 @@ const handleChange = (orderId, orderStatus) => {
 const handleClick = (orderId, newOrderStatus) => {
   console.log(orderId, newOrderStatus);
   const data = {
-    orderStatus: newOrderStatus
-  }
+    orderStatus: newOrderStatus,
+  };
   const options = {
-    method: "PUT",
+    method: 'PUT',
     body: JSON.stringify(data),
     headers: {
-      Accept: "application/json, text/plain, */*",
-      "Content-Type": "application/json",
-      authorization: token
-    }
+      Accept: 'application/json, text/plain, */*',
+      'Content-Type': 'application/json',
+      authorization: token,
+    },
   };
   fetch(`${baseUrl}/orders/${orderId}`, options)
     .then(res => res.json())
-    .then(jsonData => {
-      if(jsonData.success) {
+    .then((jsonData) => {
+      if (jsonData.success) {
         const currentOrder = document.getElementById(`${orderId}td`);
         currentOrder.innerHTML = newOrderStatus;
       }
-    })
+    });
 };
+
+window.handleChange = handleChange;
+window.handleClick = handleClick;
