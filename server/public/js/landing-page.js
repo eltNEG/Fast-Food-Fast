@@ -28,8 +28,6 @@ const addToCart = (event, foodname, foodurl, gotoBuy = false) => {
   if (gotoBuy) {
     localStorage.setItem('fffFoodname', foodname);
     localStorage.setItem('fffFoodurl', foodurl);
-    console.log(localStorage.getItem('fffFoodname'));
-    console.log(localStorage.getItem('fffFoodurl'));
     if (localStorage.getItem('fffToken')) {
       window.location.href = './checkout.html';
     } else {

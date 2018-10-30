@@ -18,7 +18,6 @@ $(document).ready(() => {
 
   $('#btn-add').click((event) => {
     event.preventDefault();
-    console.log('clicked');
     const data = {
       menu: $('#food-name').val(),
       imgUrl: $('#img-url').val(),
@@ -38,7 +37,6 @@ $(document).ready(() => {
       .then(res => res.json())
       .catch(err => console.log(err))
       .then((jsonData) => {
-        console.log(jsonData);
         if (jsonData.success) {
           jsonData.data.menu.forEach((food) => {
             if (food.foodname) {
@@ -103,7 +101,6 @@ $(document).ready(() => {
 
 
 const deleteFood = (foodid) => {
-  console.log(foodid);
   const url = `${baseUrl}/menu/${foodid}`;
   const options = {
     method: 'DELETE',
@@ -125,7 +122,6 @@ const deleteFood = (foodid) => {
 
 const startEditFood = (foodid, foodname, url) => {
   let imgURL;
-  console.log(foodid, foodname, url);
   if (url === 'null') {
     imgURL = '';
   } else {

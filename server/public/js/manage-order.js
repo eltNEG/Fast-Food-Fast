@@ -46,7 +46,6 @@ const loadOrders = () => {
 loadOrders();
 
 const handleChange = (orderId, orderStatus) => {
-  console.log(orderId);
   const newOrderStatus = document.getElementById(`${orderId}select`).value;
   const currentOrder = document.getElementById(`${orderId}td`);
   if (newOrderStatus !== orderStatus) {
@@ -56,7 +55,6 @@ const handleChange = (orderId, orderStatus) => {
   }
 };
 const handleClick = (orderId, newOrderStatus) => {
-  console.log(orderId, newOrderStatus);
   const data = {
     orderStatus: newOrderStatus,
   };
