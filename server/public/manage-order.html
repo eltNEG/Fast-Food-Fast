@@ -7,6 +7,7 @@
     <meta name="description" content="Manage ordered food for Fast-Food-Fast service restaurant.">
     <title>Manage food orders - Fast-Food-Fast</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>    
 </head>
 
 <body>
@@ -29,186 +30,188 @@
                             <th className="">Address</th>
                             <th className="">Date</th>
                             <th className="">Action</th>
-                            <th className="">Completed</th>
+                            <th className="">Status</th>
                         </tr>
                     </thead>
-                    <tr>
-                        <td>Bash</td>
-                        <td>Jollof rice</td>
-                        <td>River valley estate</td>
-                        <td>29/8/2018 8:30</td>
-                        <td>
-                            <select>
-                                <option class="accepted">--------</option>
-                                <option class="accepted">Accept</option>
-                                <option class="declined">Reject</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="checkbox" />
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Rex Davinci</td>
-                        <td>Jollof rice</td>
-                        <td>River valley estate</td>
-                        <td>29/8/2018 8:30</td>
-                        <td>
-                            <select>
-                                <option class="accepted">--------</option>
-                                <option class="accepted">Accept</option>
-                                <option class="declined">Reject</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="checkbox" checked disabled />
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Iron Rose</td>
-                        <td>Jollof rice</td>
-                        <td>River valley estate</td>
-                        <td>29/8/2018 8:30</td>
-                        <td>
-                            <select>
-                                <option class="accepted">--------</option>
-                                <option class="accepted">Accept</option>
-                                <option class="declined">Reject</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="checkbox" checked disabled />
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Bitmama</td>
-                        <td>Jollof rice</td>
-                        <td>River valley estate</td>
-                        <td>29/8/2018 8:30</td>
-                        <td>
-                            <select>
-                                <option class="accepted">--------</option>
-                                <option class="accepted">Accept</option>
-                                <option class="declined">Reject</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="checkbox" />
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Royabat</td>
-                        <td>Jollof rice</td>
-                        <td>River valley estate</td>
-                        <td>29/8/2018 8:30</td>
-                        <td>
-                            <div class="accepted">Accepted</div>
-                        </td>
-                        <td>
-                            <input type="checkbox" checked disabled />
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Bash</td>
-                        <td>Jollof rice</td>
-                        <td>River valley estate</td>
-                        <td>29/8/2018 8:30</td>
-                        <td>
-                            <div class="declined">Declined</div>
-                        </td>
-                        <td>
-                            <input type="checkbox" />
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Rex Davinci</td>
-                        <td>Jollof rice</td>
-                        <td>River valley estate</td>
-                        <td>29/8/2018 8:30</td>
-                        <td>
-                            <select>
-                                <option class="accepted">--------</option>
-                                <option class="accepted">Accept</option>
-                                <option class="declined">Reject</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="checkbox" checked disabled />
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Iron Rose</td>
-                        <td>Jollof rice</td>
-                        <td>River valley estate</td>
-                        <td>29/8/2018 8:30</td>
-                        <td>
-                            <div class="accepted">Accepted</div>
-                        </td>
-                        <td>
-                            <input type="checkbox" checked disabled />
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Bitmama</td>
-                        <td>Jollof rice</td>
-                        <td>River valley estate</td>
-                        <td>29/8/2018 8:30</td>
-                        <td>
-                            <div class="accepted">Accepted</div>
-                        </td>
-                        <td>
-                            <input type="checkbox" />
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Royabat</td>
-                        <td>Jollof rice</td>
-                        <td>River valley estate</td>
-                        <td>29/8/2018 8:30</td>
-                        <td>
-                            <div class="accepted">Accepted</div>
-                        </td>
-                        <td>
-                            <input type="checkbox" checked disabled />
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <td>Bitmama</td>
-                        <td>Jollof rice</td>
-                        <td>River valley estate</td>
-                        <td>29/8/2018 8:30</td>
-                        <td>
-                            <div class="declined">Declined</div>
-                        </td>
-                        <td>
-                            <input type="checkbox" />
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Royabat</td>
-                        <td>Jollof rice</td>
-                        <td>River valley estate</td>
-                        <td>29/8/2018 8:30</td>
-                        <td>
-                            <div class="accepted">Accepted</div>
-                        </td>
-                        <td>
-                            <input type="checkbox" checked disabled />
-                        </td>
-                    </tr>
-
+                    <tbody>
+                            <tr>
+                                    <td>Bash</td>
+                                    <td>Jollof rice</td>
+                                    <td>River valley estate</td>
+                                    <td>29/8/2018 8:30</td>
+                                    <td>
+                                        <select>
+                                            <option class="accepted">--------</option>
+                                            <option class="accepted">Accept</option>
+                                            <option class="declined">Reject</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" />
+                                    </td>
+                                </tr>
+            
+                                <tr>
+                                    <td>Rex Davinci</td>
+                                    <td>Jollof rice</td>
+                                    <td>River valley estate</td>
+                                    <td>29/8/2018 8:30</td>
+                                    <td>
+                                        <select>
+                                            <option class="accepted">--------</option>
+                                            <option class="accepted">Accept</option>
+                                            <option class="declined">Reject</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" checked disabled />
+                                    </td>
+                                </tr>
+            
+                                <tr>
+                                    <td>Iron Rose</td>
+                                    <td>Jollof rice</td>
+                                    <td>River valley estate</td>
+                                    <td>29/8/2018 8:30</td>
+                                    <td>
+                                        <select>
+                                            <option class="accepted">--------</option>
+                                            <option class="accepted">Accept</option>
+                                            <option class="declined">Reject</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" checked disabled />
+                                    </td>
+                                </tr>
+            
+                                <tr>
+                                    <td>Bitmama</td>
+                                    <td>Jollof rice</td>
+                                    <td>River valley estate</td>
+                                    <td>29/8/2018 8:30</td>
+                                    <td>
+                                        <select>
+                                            <option class="accepted">--------</option>
+                                            <option class="accepted">Accept</option>
+                                            <option class="declined">Reject</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" />
+                                    </td>
+                                </tr>
+            
+                                <tr>
+                                    <td>Royabat</td>
+                                    <td>Jollof rice</td>
+                                    <td>River valley estate</td>
+                                    <td>29/8/2018 8:30</td>
+                                    <td>
+                                        <div class="accepted">Accepted</div>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" checked disabled />
+                                    </td>
+                                </tr>
+            
+                                <tr>
+                                    <td>Bash</td>
+                                    <td>Jollof rice</td>
+                                    <td>River valley estate</td>
+                                    <td>29/8/2018 8:30</td>
+                                    <td>
+                                        <div class="declined">Declined</div>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" />
+                                    </td>
+                                </tr>
+            
+                                <tr>
+                                    <td>Rex Davinci</td>
+                                    <td>Jollof rice</td>
+                                    <td>River valley estate</td>
+                                    <td>29/8/2018 8:30</td>
+                                    <td>
+                                        <select>
+                                            <option class="accepted">--------</option>
+                                            <option class="accepted">Accept</option>
+                                            <option class="declined">Reject</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" checked disabled />
+                                    </td>
+                                </tr>
+            
+                                <tr>
+                                    <td>Iron Rose</td>
+                                    <td>Jollof rice</td>
+                                    <td>River valley estate</td>
+                                    <td>29/8/2018 8:30</td>
+                                    <td>
+                                        <div class="accepted">Accepted</div>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" checked disabled />
+                                    </td>
+                                </tr>
+            
+                                <tr>
+                                    <td>Bitmama</td>
+                                    <td>Jollof rice</td>
+                                    <td>River valley estate</td>
+                                    <td>29/8/2018 8:30</td>
+                                    <td>
+                                        <div class="accepted">Accepted</div>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" />
+                                    </td>
+                                </tr>
+            
+                                <tr>
+                                    <td>Royabat</td>
+                                    <td>Jollof rice</td>
+                                    <td>River valley estate</td>
+                                    <td>29/8/2018 8:30</td>
+                                    <td>
+                                        <div class="accepted">Accepted</div>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" checked disabled />
+                                    </td>
+                                </tr>
+            
+            
+                                <tr>
+                                    <td>Bitmama</td>
+                                    <td>Jollof rice</td>
+                                    <td>River valley estate</td>
+                                    <td>29/8/2018 8:30</td>
+                                    <td>
+                                        <div class="declined">Declined</div>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" />
+                                    </td>
+                                </tr>
+            
+                                <tr>
+                                    <td>Royabat</td>
+                                    <td>Jollof rice</td>
+                                    <td>River valley estate</td>
+                                    <td>29/8/2018 8:30</td>
+                                    <td>
+                                        <div class="accepted">Accepted</div>
+                                    </td>
+                                    <td>
+                                        <input type="checkbox" checked disabled />
+                                    </td>
+                                </tr>
+            
+                    </tbody>
                 </table>
             </div>
             <div class="middle">
@@ -219,6 +222,7 @@
             </div>
         </div>
     </main>
+    <script src="./js/manage-order.js"></script>
 </body>
 
 </html>
