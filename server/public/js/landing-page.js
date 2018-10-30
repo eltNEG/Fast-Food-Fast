@@ -16,7 +16,7 @@ $(document).ready(() => {
   food.foodname
 }', '${
   food.url
-}', true)" class='food-item-btn'>Add to cart</div>
+}', true)" class='food-item-btn'>Buy Now</div>
             </div>
         </div>
         `);
