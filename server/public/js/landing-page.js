@@ -45,4 +45,18 @@ const addToCart = (event, foodname, gotoBuy = false) => {
   document.getElementById('cart-item').innerText = Number(document.getElementById('cart-item').innerText) + 1;
 };
 
+const handleSearch = () => {
+  document.getElementsByClassName
+  const searchBoxVal = document.getElementById('search-box').value.toLowerCase()
+  const foodList = document.getElementsByClassName('food-item-case')
+  for(const food of foodList){
+    const foodName = (food.getElementsByClassName("food-name"))[0].innerText.toLowerCase()
+    if(foodName.includes(searchBoxVal)){
+      food.style.display = "";
+    }else {
+      food.style.display = "none";
+    }
+  }
+}
+
 window.addToCart = addToCart;
