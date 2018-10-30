@@ -16,7 +16,7 @@ Fast-Food-Fast is a food delivery service app for a restaurant. The project is b
 - Nodejs
 - Git
 
-### How to set up the this project
+### How to set up this project
 - Clone this repository
 - Change directory into the created folder
 - Run `yarn install`
