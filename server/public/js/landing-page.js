@@ -2,22 +2,21 @@ const baseUrl = 'http://localhost:3000/api/v1';
 
 $(document).ready(() => {
   // load foods from db and set
-  console.log('getting data');
   fetch(`${baseUrl}/menu`)
     .then(response => response.json())
     .then(jsonData => jsonData.data.menu.forEach((food) => {
       if (food.foodname) {
         $('#food-item-list').append(`
           <div class='food-item-case'>
-            <img onclick="addToCart(event,'${
-  food.foodname
-}', true)" class='food-items' src="https://www.dropbox.com/s/fgt9obc0tdrx5hd/pancake.jpeg?raw=1" alt='food-item'>
+            <img  class='food-items' src='${food.url}' alt='food-item'>
             <div class='food-item-footer'>
                 <div class="food-name">${food.foodname}</div>
                 <div class="food-price"> ₦1,200.00</div>
                 <div onclick="addToCart(event,'${
   food.foodname
-}')" class='food-item-btn'>Add to cart</div>
+}', '${
+  food.url
+}', true)" class='food-item-btn'>Add to cart</div>
             </div>
         </div>
         `);
@@ -25,12 +24,17 @@ $(document).ready(() => {
     }));
 });
 
-const addToCart = (event, foodname, gotoBuy = false) => {
+const addToCart = (event, foodname, foodurl, gotoBuy = false) => {
   if (gotoBuy) {
     localStorage.setItem('fffFoodname', foodname);
+    localStorage.setItem('fffFoodurl', foodurl);
     console.log(localStorage.getItem('fffFoodname'));
-    window.location.href = './checkout.html';
-    return;
+    console.log(localStorage.getItem('fffFoodurl'));
+    if (localStorage.getItem('fffToken')) {
+      window.location.href = './checkout.html';
+    } else {
+      window.location.href = './login.html';
+    }
   }
 
   // console.log(foodname)
@@ -42,21 +46,24 @@ const addToCart = (event, foodname, gotoBuy = false) => {
   // }
   // localStorage.setItem('fffCart', fffCart)
   // localStorage.removeItem('fffCart');
-  document.getElementById('cart-item').innerText = Number(document.getElementById('cart-item').innerText) + 1;
+  // document.getElementById('cart-item').innerText =
+  // Number(document.getElementById('cart-item').innerText) + 1;
 };
 
 const handleSearch = () => {
-  document.getElementsByClassName
-  const searchBoxVal = document.getElementById('search-box').value.toLowerCase()
-  const foodList = document.getElementsByClassName('food-item-case')
-  for(const food of foodList){
-    const foodName = (food.getElementsByClassName("food-name"))[0].innerText.toLowerCase()
-    if(foodName.includes(searchBoxVal)){
-      food.style.display = "";
-    }else {
-      food.style.display = "none";
+  const searchBoxVal = document.getElementById('search-box').value.toLowerCase();
+  const foodList = document.getElementsByClassName('food-item-case');
+  /*eslint-disable */
+  for (const food of foodList) {
+    const foodName = (food.getElementsByClassName('food-name'))[0].innerText.toLowerCase();
+    if (foodName.includes(searchBoxVal)) {
+      food.style.display = '';
+    } else {
+      food.style.display = 'none';
     }
   }
-}
+  /* eslint-enable */
+};
 
+window.handleSearch = handleSearch;
 window.addToCart = addToCart;

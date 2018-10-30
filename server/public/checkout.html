@@ -15,15 +15,14 @@
         <div class='topbar flex-container white'>
             <div class="left-menu">Fast Food Fast</div>
             <div class="flex-container right-menu ">
-                <a href='./index.html'>logout</a>
-                <a href='./checkout.html'>Cart [
-                    <span id="cart-item">0</span>]</a>
+                <a href='./order-history.html'>Order history</a>
+                <a onclick="logout()" href='./index.html'>logout</a>
             </div>
         </div>
         <div class="checkout-page">
             <div class="food-details">
-                <div>
-                    <div>Shopping Cart - Details</div>
+                <!--div>
+                    <div>Food Details</div>
                     <img src="https://www.dropbox.com/s/zze8nto1uiiakd5/shawarma.jpeg?raw=1" alt="checkout-food-item" />
                     <div class="food-summary">
                         <div>
@@ -36,8 +35,7 @@
                             Price: ₦1,200
                         </div>
                     </div>
-
-                </div>
+                </div -->
             </div>
             <div class="checkout-form" id="form1">
                 <form onsubmit="return handleCheckout(event)">

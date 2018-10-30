@@ -138,5 +138,13 @@ const startEditFood = (foodid, foodname, url) => {
   document.getElementById('food-id').value = foodid;
 };
 
+const logout = () => {
+  localStorage.removeItem('fffFoodurl');
+  localStorage.removeItem('fffFoodname');
+  localStorage.removeItem('fffToken');
+  localStorage.removeItem('fffUser');
+};
+
+window.logout = logout;
 window.deleteFood = deleteFood;
 window.startEditFood = startEditFood;

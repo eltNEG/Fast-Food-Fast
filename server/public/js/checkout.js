@@ -1,5 +1,28 @@
 const baseUrl = 'http://localhost:3000/api/v1';
 
+const appendFoodDetails = () => {
+  const foodDetails = document.getElementsByClassName('food-details');
+  foodDetails[0].innerHTML = `
+  <div>
+  <div>Food Details</div>
+  <img src="${localStorage.getItem('fffFoodurl')}" alt="checkout-food-item" />
+  <div class="food-summary">
+      <div>
+      ${localStorage.getItem('fffFoodname')}
+      </div>
+      <div>
+          Very nice, tasty and delicious.
+      </div>
+      <div>
+          Price: ₦1,200
+      </div>
+  </div>
+</div>
+  `;
+};
+
+appendFoodDetails();
+
 const handleCheckout = (event) => {
   event.preventDefault();
   const data = {
@@ -33,6 +56,15 @@ const handleDone = (event) => {
   event.preventDefault();
   window.location.href = './order-food.html';
 };
+
+const logout = () => {
+  localStorage.removeItem('fffFoodurl');
+  localStorage.removeItem('fffFoodname');
+  localStorage.removeItem('fffToken');
+  localStorage.removeItem('fffUser');
+};
+
+window.logout = logout;
 
 window.handleDone = handleDone;
 window.handleCheckout = handleCheckout;
