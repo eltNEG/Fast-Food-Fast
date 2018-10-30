@@ -67,5 +67,14 @@ const validateSignup = (event) => {
     });
 };
 
+const logout = () => {
+  localStorage.removeItem('fffFoodurl');
+  localStorage.removeItem('fffFoodname');
+  localStorage.removeItem('fffToken');
+  localStorage.removeItem('fffUser');
+};
+
+window.logout = logout;
+
 window.validateLogin = validateLogin;
 window.validateSignup = validateSignup;
