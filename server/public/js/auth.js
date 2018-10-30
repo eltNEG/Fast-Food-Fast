@@ -29,7 +29,6 @@ const validateLogin = (event) => {
         window.location.href = './order-food.html';
         return;
       }
-      console.log(jsonData.message);
     });
 };
 
@@ -65,7 +64,6 @@ const validateSignup = (event) => {
         (window.location.href = './order-food.html');
         return;
       }
-      console.log(jsonData.message);
     });
 };
 

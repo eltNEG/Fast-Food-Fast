@@ -26,4 +26,13 @@ const loadHistory = () => {
   });
 };
 
+const logout = () => {
+  localStorage.removeItem('fffFoodurl');
+  localStorage.removeItem('fffFoodname');
+  localStorage.removeItem('fffToken');
+  localStorage.removeItem('fffUser');
+};
+
+window.logout = logout;
+
 loadHistory();
