@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3000/api/v1';
+const baseUrl = './api/v1';
 
 const validateLogin = (event) => {
   event.preventDefault();
@@ -66,6 +66,15 @@ const validateSignup = (event) => {
       }
     });
 };
+
+const logout = () => {
+  localStorage.removeItem('fffFoodurl');
+  localStorage.removeItem('fffFoodname');
+  localStorage.removeItem('fffToken');
+  localStorage.removeItem('fffUser');
+};
+
+window.logout = logout;
 
 window.validateLogin = validateLogin;
 window.validateSignup = validateSignup;
