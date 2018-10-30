@@ -12,41 +12,43 @@
 
 <body>
     <main>
-            <div class='topbar flex-container white'>
-                    <div class="left-menu"><a href='./index.html'>Fast Food Fast</a></div>
-                    <div class="flex-container right-menu home-right-menu">
-                        <a href='./manage-order.html'>Manage orders</a>
-                        <a onclick="logout()" href='./index.html'>logout</a>
-                    </div>
-                </div>
-            <div class="container middle">
-                <h1 class="food-items-header">Fast Food Items</h1>
-
-                <form>
-                    <div class="input-header row">Food name</div>
-                    <input required id="food-name" type="text" class="input-field row reduce-top-margin" placeholder="Name" />
-                    <div class="input-header row">URL to food image</div>
-                    <input required id="img-url" type="text" class="input-field row reduce-top-margin" placeholder="Image url" />
-                    <input id="food-id" class="hide" />
-                    <div class="row middle">
-                        <button id="btn-add" class="add-item-btn middle">Add</button>
-                        <button id="btn-edit" class="add-item-btn middle hide">Update food</button>
-                    </div>
-                </form>
-
-                <div class="form-header item-header row">Manage items</div>
-                <table class="food-item-table" id="food-table">
-                    <tr class="row">
-                        <td>Jollof Rice</td>
-                        <td>Edit</td>
-                        <td>Delete</td>
-                    </tr>
-
-                </table>
+        <div class='topbar flex-container white'>
+            <div class="left-menu">
+                <a href='./index.html'>Fast Food Fast</a>
             </div>
+            <div class="flex-container right-menu home-right-menu">
+                <a href='./manage-order.html'>Manage orders</a>
+                <a onclick="logout()" href='./index.html'>logout</a>
+            </div>
+        </div>
+        <div class="container middle">
+            <h1 class="food-items-header">Fast Food Items</h1>
+
+            <form>
+                <div class="input-header row">Food name</div>
+                <input required id="food-name" type="text" class="input-field row reduce-top-margin" placeholder="Name" />
+                <div class="input-header row">URL to food image</div>
+                <input required id="img-url" type="text" class="input-field row reduce-top-margin" placeholder="Image url" />
+                <input id="food-id" class="hide" />
+                <div class="row middle">
+                    <button id="btn-add" class="add-item-btn middle">Add</button>
+                    <button id="btn-edit" class="add-item-btn middle hide">Update food</button>
+                </div>
+            </form>
+
+            <div class="form-header item-header row">Manage items</div>
+            <table class="food-item-table" id="food-table">
+                <tr class="row">
+                    <td>Jollof Rice</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+
+            </table>
+        </div>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="./js/manage-food.js" ></script>
+    <script src="./js/manage-food.js"></script>
 </body>
 
 </html>
