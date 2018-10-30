@@ -20,35 +20,86 @@ const getMenu = (req, res) => {
 
 const postMenu = (req, res) => {
   // get params
-  const { menu } = req.body;
+  const { menu, imgUrl } = req.body;
 
-  if (!menu) {
+  if (!menu || !imgUrl) {
     return res.status(422).json({
-      success: true,
+      success: false,
       message: 'Incomplete input parameter',
     });
   }
   // query
   // change food to menu
   const query = `
-            INSERT INTO Foods (foodName) VALUES ($1) RETURNING *;
+            INSERT INTO Foods (foodName, url) VALUES ($1, $2) RETURNING *;
         `;
   return db.getClient().then(client => client
-    .query(query, [menu])
+    .query(query, [menu, imgUrl])
     .then(dbRes => res.status(201).json({
       success: true,
       message: 'new menu added successfully',
       data: {
         menu: dbRes.rows,
       },
-    })).catch(() => res.status(400).json({
-      success: false,
-      message: 'db error - add menu item not successful',
-    }))
+    })).catch((err) => {
+      console.log(err);
+      res.status(400).json({
+        success: false,
+        message: 'db error - add menu item not successful',
+      });
+    })
     .then(() => client.release()));
+};
+
+const updateMenu = (req, res) => {
+  const { foodId } = req.params;
+  const { menu, imgUrl } = req.body;
+
+  // query
+  /** change orderState to orderStatus */
+  if (!menu || !imgUrl) {
+    return res.status(422).json({
+      success: false,
+      message: 'Incomplete input parameter',
+    });
+  }
+  const query = `
+    UPDATE Foods SET
+    foodName = $2,
+    url = $3
+    WHERE foodId = $1 RETURNING *;
+      `;
+
+  // query the database and handle response
+  return db.getClient().then((client) => {
+    client.query(query, [foodId, menu, imgUrl]).then(dbRes => res.status(200).json({
+      success: true,
+      message: 'Menu succesfully updated',
+      data: {
+        menu: dbRes.rows,
+      },
+    })).then(client.release());
+  });
+};
+
+const deleteMenu = (req, res) => {
+  const { foodId } = req.params;
+
+  const query = `
+    DELETE FROM Foods
+    WHERE foodId = $1;
+  `;
+  return db.getClient().then((client) => {
+    client.query(query, [foodId]).then(() => res.status(200).json({
+      success: true,
+      message: 'Menu succesfully deleted',
+    })).then(client.release());
+  });
 };
 
 export default {
   getMenu,
   postMenu,
+  updateMenu,
+  deleteMenu,
 };

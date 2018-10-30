@@ -12,4 +12,9 @@ menuRoute
   .get(menuController.getMenu)
   .post(jwtAuthenticator, onlyAdmin, validate, menuController.postMenu);
 
+menuRoute
+  .route('/menu/:foodId')
+  .put(jwtAuthenticator, onlyAdmin, validate, menuController.updateMenu)
+  .delete(jwtAuthenticator, onlyAdmin, validate, menuController.deleteMenu);
+
 export default menuRoute;

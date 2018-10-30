@@ -42,13 +42,14 @@
   border-radius: 2px;
   position: absolute;
   opacity: 0.85;
+  filter: brightness(50%);
 }
 
 .img-overlay {
   position: absolute;
   top: 30%;
   left: 10%;
-  color: rgba(255, 0, 0, 0.959);
+  color: #ffffff;
   font-size: 2em;
   width: 11em;
 }
@@ -140,6 +141,11 @@
 }
 
 .food-item-case:hover {
+  transform: scale(0.95, 0.95);
+}
+
+.food-item-btn:hover {
+  cursor: pointer;
   transform: scale(0.95, 0.95);
 }
 

@@ -9,16 +9,18 @@
     <title>Your fast food delivery service - Fast-Food-Fast</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/auth.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
     <div class='grid-container grid-auth-page'>
         <div class='topbar flex-container white'>
-            <div class="left-menu"><a href='https://eltneg.github.io/Fast-Food-Fast/UI/index.html'>Fast Food Fast</a></div>
+            <div class="left-menu">
+                <a href='./index.html'>Fast Food Fast</a>
+            </div>
             <div class="flex-container right-menu home-right-menu">
-                <a href='https://eltneg.github.io/Fast-Food-Fast/UI/sign-up.html'>Sign Up</a>
-                <a href='https://eltneg.github.io/Fast-Food-Fast/UI/login.html'>Login</a>
-                <a href='https://eltneg.github.io/Fast-Food-Fast/UI/login.html'>Cart [0]</a>
+                <a href='./sign-up.html'>Sign Up</a>
+                <a href='./login.html'>Login</a>
             </div>
         </div>
         <div class='auth-img'>
@@ -27,17 +29,17 @@
         </div>
         <div class="container auth-side">
             <div class="form-container">
-                    <h1 class="hidable-header row stretch">Welcome to Fast-Food-Fast!</h1>
+                <h1 class="hidable-header row stretch">Welcome to Fast-Food-Fast!</h1>
                 <div class="form-header row">Create an account</div>
 
-                <form>
-                    <input type="email" class="input-field row" placeholder="Username" />
-                    <input type="password" class="input-field row" placeholder="Password" />
-                    <input type="password" class="input-field row" placeholder="Confirm Password" />
+                <form action="./order-food.html" onsubmit="return validateSignup(event)">
+                    <input required id='username' type="text" class="input-field row" placeholder="Username" />
+                    <input required id='password' type="password" class="input-field row" placeholder="Password" />
+                    <input required id='confirm-password' type="password" class="input-field row" placeholder="Confirm Password" />
                     <div class="row middle">
-                        <button class="form-btn middle">Create Account</button>
+                        <button type="submit" class="form-btn middle">Create Account</button>
                         <div class="form-footer middle">Have an account?
-                            <a class="link" href="https://eltneg.github.io/Fast-Food-Fast/UI/login.html">Sign in</a>
+                            <a class="link" href="./login.html">Sign in</a>
                         </div>
                     </div>
 
@@ -45,6 +47,7 @@
             </div>
 
         </div>
+        <script src="./js/auth.js"></script>
 </body>
 
 </html>
