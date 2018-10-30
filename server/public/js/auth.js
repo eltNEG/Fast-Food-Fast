@@ -21,7 +21,7 @@ const validateLogin = (event) => {
     .then((jsonData) => {
       if (jsonData.success) {
         localStorage.setItem('fffToken', jsonData.data.token);
-        localStorage.setItem("fffUser", jsonData.data.user.userid)
+        localStorage.setItem('fffUser', jsonData.data.user.userid);
         if (jsonData.data.user.role === 'admin') {
           window.location.href = './manage-order.html';
           return;
@@ -57,7 +57,7 @@ const validateSignup = (event) => {
     .then((jsonData) => {
       if (jsonData.success) {
         localStorage.setItem('fffToken', jsonData.data.token);
-        localStorage.setItem("fffUser", jsonData.data.user.userid)
+        localStorage.setItem('fffUser', jsonData.data.user.userid);
         if (jsonData.data.user.role === 'admin') {
           (window.location.href = './manage-order.html');
           return;

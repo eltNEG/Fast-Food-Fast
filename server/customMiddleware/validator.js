@@ -9,6 +9,12 @@ const validate = (req, res, next) => {
   if (Object.keys(req.body).length !== 0) {
     try {
       for (const param of Object.keys(req.body)) {
+        if(param === 'imgUrl' && !validator.isURL(req.body[param])){
+          return res.status(422).json({
+            success: false,
+            message: `${param} is not a valid url`,
+          });
+        }
         if (validator.isEmpty(req.body[param]) || !(/\S/.test(req.body[param]))) {
           return res.status(422).json({
             success: false,
