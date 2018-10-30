@@ -2,7 +2,7 @@ const userid = localStorage.getItem('fffUser');
 const token = localStorage.getItem('fffToken');
 
 const loadHistory = () => {
-  const url = `http://localhost:3000/api/v1/users/${userid}/orders`;
+  const url = `./api/v1/users/${userid}/orders`;
 
   const options = {
     method: 'GET',

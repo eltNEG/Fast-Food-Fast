@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3000/api/v1';
+const baseUrl = './api/v1';
 
 const validateLogin = (event) => {
   event.preventDefault();
