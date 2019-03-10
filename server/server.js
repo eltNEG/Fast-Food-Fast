@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import loadConfig from './config';
 import routes from './routes';
 import { validateURI } from './customMiddleware/validator';
@@ -7,7 +8,7 @@ import { validateURI } from './customMiddleware/validator';
 loadConfig();
 const app = express();
 const port = process.env.PORT || 3000;
-
+app.use(cors());
 app.use(express.static('server/public'));
 
 app.use(express.json());
